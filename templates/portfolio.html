@@ -1,319 +1,197 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block title %}Portfolio - Ceren Kodaş CV{% endblock %}
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+{% block body_class %}portfolio-page{% endblock %}
 
-  <title>Portfolio - FolioOne Bootstrap Template</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+{% block content %}
 
-  <!-- Favicons -->
-  <link href="{% static 'img/favicon.png' %}" rel="icon">
-  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+<!-- Portfolio Section -->
+<section id="portfolio" class="portfolio section">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Portfolio</h2>
+    <p>
+      Here are some projects and works that reflect my learning process, technical skills, and interests in software development.
+    </p>
+  </div>
+  <!-- End Section Title -->
 
-  <!-- Vendor CSS Files -->
-  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-  <!-- Main CSS File -->
-  <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
-  <!-- =======================================================
-  * Template Name: FolioOne
-  * Template URL: https://bootstrapmade.com/folioone-bootstrap-portfolio-website-template/
-  * Updated: Aug 23 2025 with Bootstrap v5.3.7
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
-
-<body class="portfolio-page">
-
-<header id="header" class="header d-flex align-items-center light-background sticky-top">
-  <div class="container position-relative d-flex align-items-center justify-content-between">
-
-    <!-- Logo area -->
-    <!--
-    <a href="/" class="logo d-flex align-items-center me-auto me-xl-0">
-      <img src="{% static 'img/logo.webp' %}" alt="">
-      <h1 class="sitename">FolioOne</h1>
-    </a>
-    -->
-
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about/">About</a></li>
-        <li><a href="/resume/">Resume</a></li>
-        <li><a href="/services/">Services</a></li>
-        <li><a href="/portfolio/" class="active">Portfolio</a></li>
-        <li><a href="/contact/">Contact</a></li>
+      <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="200">
+        <li data-filter="*" class="filter-active">All</li>
+        <li data-filter=".filter-web">Web</li>
+        <li data-filter=".filter-ai">AI</li>
+        <li data-filter=".filter-security">Security</li>
+        <li data-filter=".filter-academic">Academic</li>
       </ul>
+      <!-- End Portfolio Filters -->
 
-      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-    </nav>
+      <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="300">
 
-    <div class="header-social-links">
-      <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-      <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-      <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-      <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-    </div>
-
-  </div>
-</header>
-
-<main class="main">
-
-  <!-- Portfolio Section -->
-  <section id="portfolio" class="portfolio section">
-
-    <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
-      <h2>Portfolio</h2>
-      <p>
-        Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit.
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam.
-      </p>
-    </div>
-    <!-- End Section Title -->
-
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-      <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-        <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="200">
-          <li data-filter="*" class="filter-active">All</li>
-          <li data-filter=".filter-strategy">Strategy</li>
-          <li data-filter=".filter-finance">Finance</li>
-          <li data-filter=".filter-operations">Operations</li>
-          <li data-filter=".filter-technology">Technology</li>
-        </ul>
-        <!-- End Portfolio Filters -->
-
-        <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="300">
-
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-strategy">
-            <div class="portfolio-card">
-              <div class="portfolio-img">
-                <img src="{% static 'img/portfolio/portfolio-1.webp' %}" alt="Portfolio Item" class="img-fluid">
-                <div class="portfolio-overlay">
-                  <a href="{% static 'img/portfolio/portfolio-1.webp' %}" class="glightbox portfolio-lightbox">
-                    <i class="bi bi-plus"></i>
-                  </a>
-                  <a href="#" class="portfolio-details-link">
-                    <i class="bi bi-link"></i>
-                  </a>
-                </div>
+        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img src="{% static 'img/portfolio/portfolio-1.webp' %}" alt="Django CV Website" class="img-fluid">
+              <div class="portfolio-overlay">
+                <a href="{% static 'img/portfolio/portfolio-1.webp' %}" class="glightbox portfolio-lightbox">
+                  <i class="bi bi-plus"></i>
+                </a>
+                <a href="#" class="portfolio-details-link">
+                  <i class="bi bi-link"></i>
+                </a>
               </div>
-              <div class="portfolio-info">
-                <h4>Business Growth Strategy</h4>
-                <p>Strategic Planning</p>
-                <div class="portfolio-tags">
-                  <span>Strategy</span>
-                  <span>Consulting</span>
-                </div>
+            </div>
+
+            <div class="portfolio-info">
+              <h4>Django CV Website</h4>
+              <p>Personal CV website developed with Django and Bootstrap.</p>
+              <div class="portfolio-tags">
+                <span>Django</span>
+                <span>Bootstrap</span>
               </div>
             </div>
           </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-finance">
-            <div class="portfolio-card">
-              <div class="portfolio-img">
-                <img src="{% static 'img/portfolio/portfolio-2.webp' %}" alt="Portfolio Item" class="img-fluid">
-                <div class="portfolio-overlay">
-                  <a href="{% static 'img/portfolio/portfolio-2.webp' %}" class="glightbox portfolio-lightbox">
-                    <i class="bi bi-plus"></i>
-                  </a>
-                  <a href="#" class="portfolio-details-link">
-                    <i class="bi bi-link"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <h4>Financial Restructuring</h4>
-                <p>Financial Advisory</p>
-                <div class="portfolio-tags">
-                  <span>Finance</span>
-                  <span>Investment</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-operations">
-            <div class="portfolio-card">
-              <div class="portfolio-img">
-                <img src="{% static 'img/portfolio/portfolio-3.webp' %}" alt="Portfolio Item" class="img-fluid">
-                <div class="portfolio-overlay">
-                  <a href="{% static 'img/portfolio/portfolio-3.webp' %}" class="glightbox portfolio-lightbox">
-                    <i class="bi bi-plus"></i>
-                  </a>
-                  <a href="#" class="portfolio-details-link">
-                    <i class="bi bi-link"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <h4>Supply Chain Optimization</h4>
-                <p>Operations Management</p>
-                <div class="portfolio-tags">
-                  <span>Operations</span>
-                  <span>Logistics</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-technology">
-            <div class="portfolio-card">
-              <div class="portfolio-img">
-                <img src="{% static 'img/portfolio/portfolio-4.webp' %}" alt="Portfolio Item" class="img-fluid">
-                <div class="portfolio-overlay">
-                  <a href="{% static 'img/portfolio/portfolio-4.webp' %}" class="glightbox portfolio-lightbox">
-                    <i class="bi bi-plus"></i>
-                  </a>
-                  <a href="#" class="portfolio-details-link">
-                    <i class="bi bi-link"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <h4>Digital Transformation</h4>
-                <p>Technology Consulting</p>
-                <div class="portfolio-tags">
-                  <span>Technology</span>
-                  <span>Innovation</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-strategy">
-            <div class="portfolio-card">
-              <div class="portfolio-img">
-                <img src="{% static 'img/portfolio/portfolio-5.webp' %}" alt="Portfolio Item" class="img-fluid">
-                <div class="portfolio-overlay">
-                  <a href="{% static 'img/portfolio/portfolio-5.webp' %}" class="glightbox portfolio-lightbox">
-                    <i class="bi bi-plus"></i>
-                  </a>
-                  <a href="#" class="portfolio-details-link">
-                    <i class="bi bi-link"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <h4>Market Expansion</h4>
-                <p>Strategic Planning</p>
-                <div class="portfolio-tags">
-                  <span>Strategy</span>
-                  <span>Growth</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-finance">
-            <div class="portfolio-card">
-              <div class="portfolio-img">
-                <img src="{% static 'img/portfolio/portfolio-6.webp' %}" alt="Portfolio Item" class="img-fluid">
-                <div class="portfolio-overlay">
-                  <a href="{% static 'img/portfolio/portfolio-6.webp' %}" class="glightbox portfolio-lightbox">
-                    <i class="bi bi-plus"></i>
-                  </a>
-                  <a href="#" class="portfolio-details-link">
-                    <i class="bi bi-link"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <h4>Investment Strategy</h4>
-                <p>Financial Advisory</p>
-                <div class="portfolio-tags">
-                  <span>Finance</span>
-                  <span>Investment</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
-        <!-- End Portfolio Items Container -->
+
+        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ai">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img src="{% static 'img/portfolio/portfolio-2.webp' %}" alt="Plant Leaf Disease Detection" class="img-fluid">
+              <div class="portfolio-overlay">
+                <a href="{% static 'img/portfolio/portfolio-2.webp' %}" class="glightbox portfolio-lightbox">
+                  <i class="bi bi-plus"></i>
+                </a>
+                <a href="#" class="portfolio-details-link">
+                  <i class="bi bi-link"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="portfolio-info">
+              <h4>Plant Leaf Disease Detection</h4>
+              <p>AI project idea using CNN for plant leaf disease classification.</p>
+              <div class="portfolio-tags">
+                <span>CNN</span>
+                <span>Deep Learning</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-security">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img src="{% static 'img/portfolio/portfolio-3.webp' %}" alt="Passive OSINT Report" class="img-fluid">
+              <div class="portfolio-overlay">
+                <a href="{% static 'img/portfolio/portfolio-3.webp' %}" class="glightbox portfolio-lightbox">
+                  <i class="bi bi-plus"></i>
+                </a>
+                <a href="#" class="portfolio-details-link">
+                  <i class="bi bi-link"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="portfolio-info">
+              <h4>Passive OSINT Report</h4>
+              <p>Cybersecurity report prepared using only legal passive information gathering methods.</p>
+              <div class="portfolio-tags">
+                <span>Cybersecurity</span>
+                <span>OSINT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img src="{% static 'img/portfolio/portfolio-4.webp' %}" alt="Responsive Web Design" class="img-fluid">
+              <div class="portfolio-overlay">
+                <a href="{% static 'img/portfolio/portfolio-4.webp' %}" class="glightbox portfolio-lightbox">
+                  <i class="bi bi-plus"></i>
+                </a>
+                <a href="#" class="portfolio-details-link">
+                  <i class="bi bi-link"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="portfolio-info">
+              <h4>Responsive Web Design</h4>
+              <p>Frontend page design using HTML, CSS, Bootstrap, and responsive layout principles.</p>
+              <div class="portfolio-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-academic">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img src="{% static 'img/portfolio/portfolio-5.webp' %}" alt="System Analysis Assignment" class="img-fluid">
+              <div class="portfolio-overlay">
+                <a href="{% static 'img/portfolio/portfolio-5.webp' %}" class="glightbox portfolio-lightbox">
+                  <i class="bi bi-plus"></i>
+                </a>
+                <a href="#" class="portfolio-details-link">
+                  <i class="bi bi-link"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="portfolio-info">
+              <h4>System Analysis Assignment</h4>
+              <p>Academic work focused on system analysis, problem solving, and structured reporting.</p>
+              <div class="portfolio-tags">
+                <span>Academic</span>
+                <span>Analysis</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img src="{% static 'img/portfolio/portfolio-6.webp' %}" alt="GitHub Project Workflow" class="img-fluid">
+              <div class="portfolio-overlay">
+                <a href="{% static 'img/portfolio/portfolio-6.webp' %}" class="glightbox portfolio-lightbox">
+                  <i class="bi bi-plus"></i>
+                </a>
+                <a href="#" class="portfolio-details-link">
+                  <i class="bi bi-link"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="portfolio-info">
+              <h4>GitHub Project Workflow</h4>
+              <p>Project workflow including Git, GitHub, commits, and version control basics.</p>
+              <div class="portfolio-tags">
+                <span>Git</span>
+                <span>GitHub</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
-
-      <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="400">
-        <a href="#portfolio" class="btn btn-primary">View All Case Studies</a>
-      </div>
+      <!-- End Portfolio Items Container -->
 
     </div>
 
-  </section>
-  <!-- /Portfolio Section -->
-
-</main>
-
-<footer id="footer" class="footer">
-
-  <div class="container">
-    <div class="copyright text-center">
-      <p>
-        © <span>Copyright</span>
-        <strong class="px-1 sitename">FolioOne</strong>
-        <span>All Rights Reserved<br></span>
-      </p>
-    </div>
-
-    <div class="social-links d-flex justify-content-center">
-      <a href="#"><i class="bi bi-twitter-x"></i></a>
-      <a href="#"><i class="bi bi-facebook"></i></a>
-      <a href="#"><i class="bi bi-instagram"></i></a>
-      <a href="#"><i class="bi bi-linkedin"></i></a>
-    </div>
-
-    <div class="credits">
-      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> |
-      <a href="https://bootstrapmade.com/tools/">DevTools</a>
-    </div>
   </div>
 
-</footer>
+</section>
+<!-- /Portfolio Section -->
 
-<!-- Scroll Top -->
-<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
-  <i class="bi bi-arrow-up-short"></i>
-</a>
-
-<!-- Preloader -->
-<div id="preloader"></div>
-
-<!-- Vendor JS Files -->
-<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-<script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
-<script src="{% static 'vendor/aos/aos.js' %}"></script>
-<script src="{% static 'vendor/typed.js/typed.umd.js' %}"></script>
-<script src="{% static 'vendor/waypoints/noframework.waypoints.js' %}"></script>
-<script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
-<script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
-<script src="{% static 'vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
-<script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
-<script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
-
-<!-- Main JS File -->
-<script src="{% static 'js/main.js' %}"></script>
-
-</body>
-
-</html>
+{% endblock %}
