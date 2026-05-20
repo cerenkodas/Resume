@@ -1,7 +1,13 @@
 {% extends 'layout.html' %}
 {% load static %}
 
-{% block title %}Home - Ceren Kodaş CV{% endblock %}
+{% block title %}
+    {% if lang == 'en' %}
+        Home - Ceren Kodaş CV
+    {% else %}
+        Ana Sayfa - Ceren Kodaş CV
+    {% endif %}
+{% endblock %}
 
 {% block body_class %}index-page{% endblock %}
 
@@ -10,74 +16,135 @@
 <!-- Hero Section -->
 <section id="hero" class="hero section">
 
-  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-    <div class="row gy-4 align-items-center">
+        <div class="row gy-4 align-items-center">
 
-      <div class="col-lg-6 order-2 order-lg-1">
-        <div class="hero-content">
+            <div class="col-lg-6 order-2 order-lg-1">
+                <div class="hero-content">
 
-          <h1 data-aos="fade-up" data-aos-delay="200">
-            Hello, I'm <span class="highlight">Brandon Johnson</span>
-          </h1>
+                    <h1 data-aos="fade-up" data-aos-delay="200">
+                        {% if lang == 'en' %}
+                            Hello, I'm <span>Ceren !</span>
+                        {% else %}
+                            Merhaba, ben <span>Ceren !</span>
+                        {% endif %}
+                    </h1>
 
-          <h2 data-aos="fade-up" data-aos-delay="300">
-            Creative
-            <span class="typed" data-typed-items="UI/UX Designer, Web Developer, Digital Artist, Brand Strategist"></span>
-          </h2>
+                    <h2 data-aos="fade-up" data-aos-delay="300">
+                        {% if lang == 'en' %}
+                            I'm a
+                            <span class="typed"
+                                  data-typed-items="Software Developer, Information Systems Engineering Student"></span>
+                        {% else %}
+                            Ben bir
+                            <span class="typed"
+                                  data-typed-items="Yazılım Geliştiricisiyim, Bilişim Sistemleri Mühendisliği Öğrencisiyim"></span>
+                        {% endif %}
+                    </h2>
 
-          <p data-aos="fade-up" data-aos-delay="400">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </p>
+                    <p data-aos="fade-up" data-aos-delay="400">
+                        {% if lang == 'en' %}
+                            As an Information Systems Engineering student, I continuously improve myself in software
+                            development and data-driven fields. In my academic and personal projects, I focus on
+                            creating
+                            user-oriented, well-structured, and functional solutions while gaining experience by
+                            applying the
+                            technologies I learn to real projects.
+                        {% else %}
+                            Bilişim Sistemleri Mühendisliği öğrencisi olarak yazılım geliştirme ve
+                            veri odaklı
+                            alanlarda kendimi sürekli geliştiriyorum. Akademik ve kişisel projelerimde kullanıcı odaklı,
+                            düzenli
+                            ve işlevsel çözümler üretmeye önem veriyor; öğrendiğim teknolojileri gerçek projelerde
+                            uygulayarak
+                            deneyim kazanıyorum.
+                        {% endif %}
+                    </p>
 
-          <div class="hero-actions" data-aos="fade-up" data-aos-delay="500">
-            <a href="/portfolio/" class="btn btn-primary">View My Work</a>
-            <a href="/contact/" class="btn btn-outline">Get In Touch</a>
-          </div>
+                    <div class="hero-actions" data-aos="fade-up" data-aos-delay="500">
+                        <a href="/portfolio/?lang={{ lang }}" class="btn btn-primary">
+                            {% if lang == 'en' %}
+                                View My Work
+                            {% else %}
+                                Projelerimi Gör
+                            {% endif %}
+                        </a>
 
-          <div class="social-links" data-aos="fade-up" data-aos-delay="600">
-            <a href="#"><i class="bi bi-twitter"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
-            <a href="#"><i class="bi bi-github"></i></a>
-            <a href="#"><i class="bi bi-dribbble"></i></a>
-          </div>
+                        <a href="/contact/?lang={{ lang }}" class="btn btn-outline">
+                            {% if lang == 'en' %}
+                                Get In Touch
+                            {% else %}
+                                İletişime Geç
+                            {% endif %}
+                        </a>
+                    </div>
 
-        </div>
-      </div>
+                    <div class="social-links" data-aos="fade-up" data-aos-delay="600">
+                        <a href="https://www.linkedin.com/in/cerenkodas/" target="_blank">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
 
-      <div class="col-lg-6 order-1 order-lg-2">
-        <div class="hero-image" data-aos="zoom-in" data-aos-delay="300">
-          <div class="image-wrapper">
+                        <a href="https://github.com/cerenkodas" target="_blank">
+                            <i class="bi bi-github"></i>
+                        </a>
+                    </div>
 
-            <img src="{% static 'img/profile/profile-square-11.webp' %}" alt="Profile Image" class="img-fluid">
-
-            <div class="floating-elements">
-
-              <div class="floating-card design" data-aos="fade-left" data-aos-delay="700">
-                <i class="bi bi-palette"></i>
-                <span>Design</span>
-              </div>
-
-              <div class="floating-card code" data-aos="fade-right" data-aos-delay="800">
-                <i class="bi bi-code-slash"></i>
-                <span>Code</span>
-              </div>
-
-              <div class="floating-card creativity" data-aos="fade-up" data-aos-delay="900">
-                <i class="bi bi-lightbulb"></i>
-                <span>Ideas</span>
-              </div>
-
+                </div>
             </div>
 
-          </div>
+            <div class="col-lg-6 order-1 order-lg-2">
+                <div class="hero-image" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="image-wrapper">
+
+                        <img src="{% static 'img/profile/ceren-profile.jpeg' %}"
+                             alt="Ceren Kodaş"
+                             class="img-fluid">
+
+                        <div class="floating-elements">
+
+                            <div class="floating-card design" data-aos="fade-left" data-aos-delay="700">
+                                <i class="bi bi-palette"></i>
+                                <span>
+                                    {% if lang == 'en' %}
+                                        Design
+                                    {% else %}
+                                        Tasarım
+                                    {% endif %}
+                                </span>
+                            </div>
+
+                            <div class="floating-card code" data-aos="fade-right" data-aos-delay="800">
+                                <i class="bi bi-code-slash"></i>
+                                <span>
+                                    {% if lang == 'en' %}
+                                        Code
+                                    {% else %}
+                                        Kod
+                                    {% endif %}
+                                </span>
+                            </div>
+
+                            <div class="floating-card creativity" data-aos="fade-up" data-aos-delay="900">
+                                <i class="bi bi-lightbulb"></i>
+                                <span>
+                                    {% if lang == 'en' %}
+                                        Ideas
+                                    {% else %}
+                                        Fikirler
+                                    {% endif %}
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
         </div>
-      </div>
 
     </div>
-
-  </div>
 
 </section>
 <!-- /Hero Section -->

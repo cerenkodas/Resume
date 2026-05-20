@@ -1,0 +1,217 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    {% if lang == 'en' %}
+        Skills - Ceren Kodaş CV
+    {% else %}
+        Yeteneklerim - Ceren Kodaş CV
+    {% endif %}
+{% endblock %}
+
+{% block body_class %}skills-page{% endblock %}
+
+{% block content %}
+
+<!-- Skills Section -->
+<section id="skills" class="services section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>
+            {% if lang == 'en' %}
+                Skills
+            {% else %}
+                Yeteneklerim
+            {% endif %}
+        </h2>
+
+        <p>
+            {% if lang == 'en' %}
+                These are the main technical and personal skills I am currently learning and improving through my academic projects.
+            {% else %}
+                Akademik projelerim ve kişisel çalışmalarım sayesinde geliştirdiğim teknik ve kişisel becerilerim.
+            {% endif %}
+        </p>
+    </div>
+    <!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row justify-content-center g-5">
+
+            <!-- Programming Languages -->
+            <div class="col-md-6" data-aos="fade-right" data-aos-delay="100">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="bi bi-code-slash"></i>
+                    </div>
+
+                    <div class="service-content">
+                        <h3>
+                            {% if lang == 'en' %}
+                                Programming Languages
+                            {% else %}
+                                Programlama Dilleri
+                            {% endif %}
+                        </h3>
+
+                        <p>
+                            {% if lang == 'en' %}
+                                I have experience with Python, Java, JavaScript, HTML, CSS, SQL, C, and C++ through academic and personal projects.
+                            {% else %}
+                                Akademik ve kişisel projelerimde Python, Java, JavaScript, HTML, CSS, SQL, C ve C++ dilleriyle çalışma deneyimi kazandım.
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- End Skill Item -->
+
+            <!-- Frameworks and Technologies -->
+            <div class="col-md-6" data-aos="fade-left" data-aos-delay="100">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="bi bi-layers"></i>
+                    </div>
+
+                    <div class="service-content">
+                        <h3>
+                            {% if lang == 'en' %}
+                                Frameworks and Technologies
+                            {% else %}
+                                Frameworkler ve Teknolojiler
+                            {% endif %}
+                        </h3>
+
+                        <p>
+                            {% if lang == 'en' %}
+                                I use Django, Node.js, MySQL, REST API, Data Structures & Algorithms, Git, GitHub, Visual Studio Code, and PyCharm in my development process.
+                            {% else %}
+                                Geliştirme sürecimde Django, Node.js, MySQL, REST API, Veri Yapıları ve Algoritmalar, Git, GitHub, Visual Studio Code ve PyCharm kullanıyorum.
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- End Skill Item -->
+
+            <!-- Web Development -->
+            <div class="col-md-6" data-aos="fade-right" data-aos-delay="200">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="bi bi-window-stack"></i>
+                    </div>
+
+                    <div class="service-content">
+                        <h3>
+                            {% if lang == 'en' %}
+                                Web Development
+                            {% else %}
+                                Web Geliştirme
+                            {% endif %}
+                        </h3>
+
+                        <p>
+                            {% if lang == 'en' %}
+                                I develop responsive and user-friendly web pages using HTML, CSS, JavaScript, Django, and modern web design principles.
+                            {% else %}
+                                HTML, CSS, JavaScript, Django ve modern web tasarım prensipleriyle responsive ve kullanıcı dostu web sayfaları geliştiriyorum.
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- End Skill Item -->
+
+            <!-- Database Management -->
+            <div class="col-md-6" data-aos="fade-left" data-aos-delay="200">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="bi bi-database"></i>
+                    </div>
+
+                    <div class="service-content">
+                        <h3>
+                            {% if lang == 'en' %}
+                                Database Management
+                            {% else %}
+                                Veritabanı Yönetimi
+                            {% endif %}
+                        </h3>
+
+                        <p>
+                            {% if lang == 'en' %}
+                                I have basic experience in storing, managing, and retrieving project data using SQL and MySQL database systems.
+                            {% else %}
+                                SQL ve MySQL veritabanı sistemleriyle proje verilerini saklama, yönetme ve veriye erişme konularında temel deneyime sahibim.
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- End Skill Item -->
+
+            <!-- Version Control -->
+            <div class="col-md-6" data-aos="fade-right" data-aos-delay="300">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="bi bi-git"></i>
+                    </div>
+
+                    <div class="service-content">
+                        <h3>
+                            {% if lang == 'en' %}
+                                Version Control
+                            {% else %}
+                                Versiyon Kontrol
+                            {% endif %}
+                        </h3>
+
+                        <p>
+                            {% if lang == 'en' %}
+                                I use Git and GitHub to manage project versions, track code changes, and keep my repositories organized.
+                            {% else %}
+                                Proje versiyonlarını yönetmek, kod değişikliklerini takip etmek ve depolarımı düzenli tutmak için Git ve GitHub kullanıyorum.
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- End Skill Item -->
+
+            <!-- Soft Skills -->
+            <div class="col-md-6" data-aos="fade-left" data-aos-delay="300">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="bi bi-people"></i>
+                    </div>
+
+                    <div class="service-content">
+                        <h3>
+                            {% if lang == 'en' %}
+                                Soft Skills
+                            {% else %}
+                                Kişisel Beceriler
+                            {% endif %}
+                        </h3>
+
+                        <p>
+                            {% if lang == 'en' %}
+                                I have problem-solving, communication, teamwork, adaptability, learning agility, time management, and organization skills.
+                            {% else %}
+                                Problem çözme, iletişim, takım çalışması, uyum sağlama, hızlı öğrenme, zaman yönetimi ve organizasyon becerilerine sahibim.
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- End Skill Item -->
+
+        </div>
+
+    </div>
+
+</section>
+<!-- /Skills Section -->
+
+{% endblock %}

@@ -1,6 +1,12 @@
 {% extends 'layout.html' %}
 
-{% block title %}Contact - Ceren Kodaş CV{% endblock %}
+{% block title %}
+    {% if lang == 'en' %}
+        Contact - Ceren Kodaş CV
+    {% else %}
+        İletişim - Ceren Kodaş CV
+    {% endif %}
+{% endblock %}
 
 {% block body_class %}contact-page{% endblock %}
 
@@ -9,103 +15,189 @@
 <!-- Contact Section -->
 <section id="contact" class="contact section">
 
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Contact</h2>
-    <p>
-      You can contact me through the form below or reach me using my contact information.
-    </p>
-  </div>
-  <!-- End Section Title -->
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>
+            {% if lang == 'en' %}
+                Contact
+            {% else %}
+                İletişim
+            {% endif %}
+        </h2>
 
-  <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <p>
+            {% if lang == 'en' %}
+                You can contact me through the form below or reach me using my contact information.
+            {% else %}
+                Aşağıdaki formu kullanarak veya iletişim bilgilerimi kullanarak benimle iletişime geçebilirsiniz.
+            {% endif %}
+        </p>
+    </div>
+    <!-- End Section Title -->
 
-    <div class="row g-4 g-lg-5">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-      <div class="col-lg-5">
-        <div class="info-box" data-aos="fade-up" data-aos-delay="200">
-          <h3>Contact Info</h3>
-          <p>
-            Feel free to contact me for academic projects, internship opportunities, or collaboration.
-          </p>
+        <div class="row g-4 g-lg-5">
 
-          <div class="info-item" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon-box">
-              <i class="bi bi-geo-alt"></i>
-            </div>
-            <div class="content">
-              <h4>Location</h4>
-              <p>Türkiye</p>
-            </div>
-          </div>
+            <!-- Contact Info -->
+            <div class="col-lg-5">
+                <div class="info-box" data-aos="fade-up" data-aos-delay="200">
 
-          <div class="info-item" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon-box">
-              <i class="bi bi-envelope"></i>
-            </div>
-            <div class="content">
-              <h4>Email Address</h4>
-              <p>cerenkodas@icloud.com</p>
-            </div>
-          </div>
+                    <h3>
+                        {% if lang == 'en' %}
+                            Contact Info
+                        {% else %}
+                            İletişim Bilgileri
+                        {% endif %}
+                    </h3>
 
-          <div class="info-item" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon-box">
-              <i class="bi bi-linkedin"></i>
+                    <p>
+                        {% if lang == 'en' %}
+                            You can contact me for academic studies, internship opportunities, and collaborative projects.
+                        {% else %}
+                            Akademik çalışmalar, staj fırsatları ve iş birliği projeleri için benimle iletişime geçebilirsiniz.
+                        {% endif %}
+                    </p>
+
+                    <div class="info-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="icon-box">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+
+                        <div class="content">
+                            <h4>
+                                {% if lang == 'en' %}
+                                    Location
+                                {% else %}
+                                    Konum
+                                {% endif %}
+                            </h4>
+                            <p>Tuzla, İstanbul, Türkiye</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="icon-box">
+                            <i class="bi bi-envelope"></i>
+                        </div>
+
+                        <div class="content">
+                            <h4>
+                                {% if lang == 'en' %}
+                                    Email Address
+                                {% else %}
+                                    E-posta
+                                {% endif %}
+                            </h4>
+                            <p>cerenkodass34@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item" data-aos="fade-up" data-aos-delay="500">
+                        <div class="icon-box">
+                            <i class="bi bi-linkedin"></i>
+                        </div>
+
+                        <div class="content">
+                            <h4>LinkedIn</h4>
+                            <p>
+                                <a href="https://www.linkedin.com/in/cerenkodas/" target="_blank">
+                                    https://www.linkedin.com/in/cerenkodas/
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <div class="content">
-              <h4>LinkedIn</h4>
-              <p>linkedin.com/in/your-linkedin</p>
+            <!-- End Contact Info -->
+
+            <!-- Contact Form -->
+            <div class="col-lg-7">
+                <div class="contact-form" data-aos="fade-up" data-aos-delay="300">
+
+                    <h3>
+                        {% if lang == 'en' %}
+                            Get In Touch
+                        {% else %}
+                            Benimle İletişime Geç
+                        {% endif %}
+                    </h3>
+
+                    <p>
+                        {% if lang == 'en' %}
+                            You can send me a message by filling out the form below.
+                        {% else %}
+                            Aşağıdaki formu doldurarak bana mesaj gönderebilirsiniz.
+                        {% endif %}
+                    </p>
+
+                    <!-- Success / Error Messages -->
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-success text-center" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <form method="post" action="/contact/?lang={{ lang }}" class="contact-form-custom" data-aos="fade-up" data-aos-delay="200">
+                        {% csrf_token %}
+
+                        <div class="row gy-4">
+
+                            <div class="col-md-6">
+                                <input type="text"
+                                       name="name"
+                                       class="form-control"
+                                       placeholder="{% if lang == 'en' %}Your Name{% else %}Adınız{% endif %}"
+                                       required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <input type="email"
+                                       name="email"
+                                       class="form-control"
+                                       placeholder="{% if lang == 'en' %}Your Email{% else %}E-posta Adresiniz{% endif %}"
+                                       required>
+                            </div>
+
+                            <div class="col-12">
+                                <input type="text"
+                                       name="subject"
+                                       class="form-control"
+                                       placeholder="{% if lang == 'en' %}Subject{% else %}Konu{% endif %}"
+                                       required>
+                            </div>
+
+                            <div class="col-12">
+                                <textarea name="message"
+                                          class="form-control"
+                                          rows="6"
+                                          placeholder="{% if lang == 'en' %}Message{% else %}Mesajınız{% endif %}"
+                                          required></textarea>
+                            </div>
+
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn">
+                                    {% if lang == 'en' %}
+                                        Send Message
+                                    {% else %}
+                                        Mesaj Gönder
+                                    {% endif %}
+                                </button>
+                            </div>
+
+                        </div>
+                    </form>
+
+                </div>
             </div>
-          </div>
+            <!-- End Contact Form -->
 
         </div>
-      </div>
-
-      <div class="col-lg-7">
-        <div class="contact-form" data-aos="fade-up" data-aos-delay="300">
-          <h3>Get In Touch</h3>
-          <p>
-            You can send me a message by filling out the form below.
-          </p>
-
-          <!-- Not: Bu form şu an sadece görsel olarak duruyor. Django ile mail göndermek için backend kısmını sonra yazabiliriz. -->
-          <form action="#" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-            <div class="row gy-4">
-
-              <div class="col-md-6">
-                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-              </div>
-
-              <div class="col-md-6">
-                <input type="email" class="form-control" name="email" placeholder="Your Email" required>
-              </div>
-
-              <div class="col-12">
-                <input type="text" class="form-control" name="subject" placeholder="Subject" required>
-              </div>
-
-              <div class="col-12">
-                <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
-              </div>
-
-              <div class="col-12 text-center">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                <button type="submit" class="btn">Send Message</button>
-              </div>
-
-            </div>
-          </form>
-
-        </div>
-      </div>
 
     </div>
-
-  </div>
 
 </section>
 <!-- /Contact Section -->

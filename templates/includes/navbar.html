@@ -3,22 +3,67 @@
 
         <nav id="navmenu" class="navmenu">
             <ul>
-                <li><a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
-                <li><a href="/about/" class="{% if request.path == '/about/' %}active{% endif %}">About</a></li>
-                <li><a href="/resume/" class="{% if request.path == '/resume/' %}active{% endif %}">Resume</a></li>
-                <li><a href="/services/" class="{% if request.path == '/services/' %}active{% endif %}">Services</a></li>
-                <li><a href="/portfolio/" class="{% if request.path == '/portfolio/' %}active{% endif %}">Portfolio</a></li>
-                <li><a href="/contact/" class="{% if request.path == '/contact/' %}active{% endif %}">Contact</a></li>
+                <li>
+                    <a href="/?lang={{ lang }}" class="{% if request.path == '/' %}active{% endif %}">
+                        {% if lang == 'en' %}Home{% else %}Ana Sayfa{% endif %}
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/about/?lang={{ lang }}" class="{% if request.path == '/about/' %}active{% endif %}">
+                        {% if lang == 'en' %}About{% else %}Hakkımda{% endif %}
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/resume/?lang={{ lang }}" class="{% if request.path == '/resume/' %}active{% endif %}">
+                        {% if lang == 'en' %}Resume{% else %}Özgeçmiş{% endif %}
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/skills/?lang={{ lang }}" class="{% if request.path == '/skills/' %}active{% endif %}">
+                        {% if lang == 'en' %}Skills{% else %}Yeteneklerim{% endif %}
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/portfolio/?lang={{ lang }}"
+                       class="{% if request.path == '/portfolio/' %}active{% endif %}">
+                        {% if lang == 'en' %}Projects{% else %}Projeler{% endif %}
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/contact/?lang={{ lang }}" class="{% if request.path == '/contact/' %}active{% endif %}">
+                        {% if lang == 'en' %}Contact{% else %}İletişim{% endif %}
+                    </a>
+                </li>
             </ul>
 
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
 
-        <div class="header-social-links">
-            <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        <div class="header-social-links d-flex align-items-center gap-3">
+
+            <!-- Language Buttons -->
+            <div class="language-switch">
+                <a href="{{ request.path }}?lang=tr" class="language-link">TR</a>
+                <span>|</span>
+                <a href="{{ request.path }}?lang=en" class="language-link">EN</a>
+            </div>
+
+            <!-- Social Links -->
+            <a href="https://www.linkedin.com/in/cerenkodas/" class="linkedin" target="_blank">
+                <i class="bi bi-linkedin"></i>
+            </a>
+
+            <a href="https://github.com/cerenkodas" class="github" target="_blank">
+                <i class="bi bi-github"></i>
+            </a>
+
         </div>
 
     </div>

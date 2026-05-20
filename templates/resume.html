@@ -1,6 +1,12 @@
 {% extends 'layout.html' %}
 
-{% block title %}Resume - Ceren Kodaş CV{% endblock %}
+{% block title %}
+    {% if lang == 'en' %}
+        Resume - Ceren Kodaş CV
+    {% else %}
+        Özgeçmiş - Ceren Kodaş CV
+    {% endif %}
+{% endblock %}
 
 {% block body_class %}resume-page{% endblock %}
 
@@ -9,140 +15,211 @@
 <!-- Resume Section -->
 <section id="resume" class="resume section">
 
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Resume</h2>
-    <p>
-      A summary of my education, technical skills, academic projects, and learning experience.
-    </p>
-  </div>
-  <!-- End Section Title -->
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>
+            {% if lang == 'en' %}
+                Resume
+            {% else %}
+                Özgeçmiş
+            {% endif %}
+        </h2>
 
-  <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <p>
+            {% if lang == 'en' %}
+                This section summarizes my education, internship experience, and certificates.
+            {% else %}
+                Bu bölümde eğitim bilgilerim, staj deneyimim ve sertifikalarım yer almaktadır.
+            {% endif %}
+        </p>
+    </div>
+    <!-- End Section Title -->
 
-    <div class="row">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-      <div class="col-lg-6">
+        <div class="row">
 
-        <!-- Education Section -->
-        <div class="resume-item" data-aos="fade-up">
-          <h3 class="resume-title">Education</h3>
+            <!-- Education Section -->
+            <div class="col-lg-6">
 
-          <div class="resume-content">
-            <article class="education-item">
-              <h4>Computer Programming / Software Development Student</h4>
-              <h5>2024 - Present</h5>
-              <p class="institution"><em>University / Department Information</em></p>
-              <p>
-                I am studying software development and improving myself in web programming,
-                database systems, cybersecurity, and artificial intelligence topics.
-              </p>
-            </article>
+                <div class="resume-item" data-aos="fade-up">
+                    <h3 class="resume-title">
+                        {% if lang == 'en' %}
+                            Education
+                        {% else %}
+                            Eğitim
+                        {% endif %}
+                    </h3>
 
-            <article class="education-item">
-              <h4>Relevant Coursework</h4>
-              <h5>Ongoing</h5>
-              <p class="institution"><em>Academic Studies</em></p>
-              <p>
-                Web Programming with Django, Operating Systems, Cybersecurity,
-                System Analysis, Project Management, and Artificial Intelligence.
-              </p>
-            </article>
-          </div>
+                    <div class="resume-content">
+
+                        <article class="education-item">
+                            <h4>
+                                {% if lang == 'en' %}
+                                    Mehmet Tekinalp Anatolian High School
+                                {% else %}
+                                    Mehmet Tekinalp Anadolu Lisesi
+                                {% endif %}
+                            </h4>
+
+                            <h5>
+                                {% if lang == 'en' %}
+                                    September 2018 - June 2021
+                                {% else %}
+                                    Eylül 2018 - Haziran 2021
+                                {% endif %}
+                            </h5>
+
+                            <p><strong>GPA:</strong> 92.76 / 100</p>
+                        </article>
+
+                        <article class="education-item">
+                            <h4>
+                                {% if lang == 'en' %}
+                                    Piri Reis University | Information Systems Engineering
+                                {% else %}
+                                    Piri Reis Üniversitesi | Bilişim Sistemleri Mühendisliği
+                                {% endif %}
+                            </h4>
+
+                            <h5>
+                                {% if lang == 'en' %}
+                                    September 2022 - Current
+                                {% else %}
+                                    Eylül 2022 - Devam Ediyor
+                                {% endif %}
+                            </h5>
+
+                            <p><strong>GPA:</strong> 3.20 / 4.00</p>
+
+                            <p>
+                                {% if lang == 'en' %}
+                                    During my studies in Information Systems Engineering at Piri Reis University, I developed a strong academic foundation in software development, algorithms, and database systems. Through my coursework, I improved my analytical thinking and problem-solving skills and gained a comprehensive understanding of software development processes. I also had the opportunity to work on team-based projects, which helped me strengthen both my technical and communication skills. In addition, I am currently taking courses to further develop my knowledge in data science and artificial intelligence.
+                                {% else %}
+                                    Piri Reis Üniversitesi Bilişim Sistemleri Mühendisliği bölümündeki eğitimim boyunca yazılım geliştirme, algoritmalar ve veritabanı sistemleri alanlarında güçlü bir akademik temel edindim. Aldığım dersler sayesinde analitik düşünme ve problem çözme becerilerimi geliştirdim; yazılım geliştirme süreçleri hakkında kapsamlı bilgi kazandım. Ayrıca takım çalışmasına dayalı projelerde yer alarak hem teknik hem de iletişim becerilerimi geliştirme fırsatı buldum. Bunun yanında veri bilimi ve yapay zeka alanlarında kendimi geliştirmeye devam ediyorum.
+                                {% endif %}
+                            </p>
+                        </article>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- End Education Section -->
+
+            <!-- Work Experience Section -->
+            <div class="col-lg-6">
+
+                <div class="resume-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="resume-title">
+                        {% if lang == 'en' %}
+                            Work Experience
+                        {% else %}
+                            İş Deneyimi
+                        {% endif %}
+                    </h3>
+
+                    <div class="resume-content">
+
+                        <article class="experience-item">
+                            <h4>
+                                {% if lang == 'en' %}
+                                    BMS Proje | Web Development Intern
+                                {% else %}
+                                    BMS Proje | Web Geliştirme Stajyeri
+                                {% endif %}
+                            </h4>
+
+                            <h5>
+                                {% if lang == 'en' %}
+                                    July 2025 - August 2025
+                                {% else %}
+                                    Temmuz 2025 - Ağustos 2025
+                                {% endif %}
+                            </h5>
+
+                            <p>
+                                {% if lang == 'en' %}
+                                    I completed my mandatory summer internship at BMS Proje, where I worked on web development projects. During this period, I gained practical experience in front-end technologies such as HTML, CSS, and JavaScript. I participated in developing and improving web pages, worked with data retrieved from databases, and supported the team in building user-friendly web interfaces. This experience helped me strengthen my problem-solving skills and improve my understanding of modern web development practices.
+                                {% else %}
+                                    Zorunlu yaz stajımı BMS Proje’de tamamladım ve bu süreçte web geliştirme projelerinde görev aldım. HTML, CSS ve JavaScript gibi front-end teknolojilerinde pratik deneyim kazandım. Web sayfalarının geliştirilmesi ve iyileştirilmesi süreçlerine katıldım, veritabanından alınan verilerle çalıştım ve kullanıcı dostu web arayüzlerinin oluşturulmasına destek oldum. Bu deneyim, problem çözme becerilerimi geliştirmeme ve modern web geliştirme süreçlerini daha iyi anlamama katkı sağladı.
+                                {% endif %}
+                            </p>
+
+                            <h5>
+                                {% if lang == 'en' %}
+                                    Professional Skills and Competencies
+                                {% else %}
+                                    Kazanılan Beceriler ve Yetkinlikler
+                                {% endif %}
+                            </h5>
+
+                            <ul>
+                                {% if lang == 'en' %}
+                                    <li>Basic experience in HTML, CSS, and JavaScript</li>
+                                    <li>Understanding of web development fundamentals</li>
+                                    <li>Ability to work collaboratively in a development team</li>
+                                    <li>Problem-solving and analytical thinking skills</li>
+                                    <li>Willingness to learn new technologies and improve technical skills</li>
+                                {% else %}
+                                    <li>HTML, CSS ve JavaScript alanlarında temel deneyim</li>
+                                    <li>Web geliştirme temellerini anlama</li>
+                                    <li>Geliştirme ekibi içinde iş birliğiyle çalışma becerisi</li>
+                                    <li>Problem çözme ve analitik düşünme becerileri</li>
+                                    <li>Yeni teknolojileri öğrenme ve teknik becerileri geliştirme isteği</li>
+                                {% endif %}
+                            </ul>
+                        </article>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- End Work Experience Section -->
+
         </div>
-        <!-- End Education Section -->
 
-        <!-- Professional Skills Section -->
-        <div class="resume-item skills-animation" data-aos="fade-up">
-          <h3 class="resume-title">Technical Skills</h3>
+        <!-- Certificates Section -->
+        <div class="row mt-5">
+            <div class="col-lg-12">
 
-          <div class="resume-content">
+                <div class="resume-item" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="resume-title">
+                        {% if lang == 'en' %}
+                            Certificates
+                        {% else %}
+                            Sertifikalar
+                        {% endif %}
+                    </h3>
 
-            <div class="skill-item">
-              <h4>Python & Django</h4>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
+                    <div class="resume-content">
+                        <ul>
+                            {% if lang == 'en' %}
+                                <li>Digital Banking Bootcamp Program — DenizBank & İlerisi Gençlik | 2025</li>
+                                <li>HTML Essentials — Cisco Networking Academy | 2025</li>
+                                <li>CSS Essentials — Cisco Networking Academy | 2025</li>
+                                <li>Sıfırdan Django - Docker - Nginx - AWS S3 - Server Deploy — Udemy | 2026</li>
+                                <li>Data Science Essentials with Python — Cisco Networking Academy | 2026</li>
+                                <li>Introduction to Cybersecurity — Cisco Networking Academy | 2026</li>
+                                <li>Linux Essentials — Cisco Networking Academy | 2026</li>
+                            {% else %}
+                                <li>Digital Banking Bootcamp Program — DenizBank & İlerisi Gençlik | 2025</li>
+                                <li>HTML Essentials — Cisco Networking Academy | 2025</li>
+                                <li>CSS Essentials — Cisco Networking Academy | 2025</li>
+                                <li>Sıfırdan Django - Docker - Nginx - AWS S3 - Server Deploy — Udemy | 2026</li>
+                                <li>Data Science Essentials with Python — Cisco Networking Academy | 2026</li>
+                                <li>Introduction to Cybersecurity — Cisco Networking Academy | 2026</li>
+                                <li>Linux Essentials — Cisco Networking Academy | 2026</li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+
             </div>
-
-            <div class="skill-item">
-              <h4>HTML, CSS & Bootstrap</h4>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <h4>Git & GitHub</h4>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <h4>Database Management</h4>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-          </div>
         </div>
-        <!-- End Professional Skills Section -->
-
-      </div>
-
-      <div class="col-lg-6">
-
-        <!-- Projects Section -->
-        <div class="resume-item" data-aos="fade-up" data-aos-delay="100">
-          <h3 class="resume-title">Academic Projects</h3>
-
-          <div class="resume-content">
-
-            <article class="experience-item">
-              <h4>Django CV Website</h4>
-              <h5>2026</h5>
-              <p class="company"><em>Web Programming Project</em></p>
-              <ul>
-                <li>Developed a personal CV website using Django and Bootstrap.</li>
-                <li>Integrated ready-made Bootstrap template files into a Django project structure.</li>
-                <li>Organized reusable template parts using base.html and include files.</li>
-                <li>Prepared the project for Git and GitHub version control.</li>
-              </ul>
-            </article>
-
-            <article class="experience-item">
-              <h4>Plant Leaf Disease Detection</h4>
-              <h5>2026</h5>
-              <p class="company"><em>Artificial Intelligence Project</em></p>
-              <ul>
-                <li>Prepared a project idea about plant disease detection using leaf images.</li>
-                <li>Studied CNN architecture and image classification logic.</li>
-                <li>Focused on feature extraction, convolution layers, pooling, and classification.</li>
-              </ul>
-            </article>
-
-            <article class="experience-item">
-              <h4>Passive OSINT Report</h4>
-              <h5>2026</h5>
-              <p class="company"><em>Cybersecurity Assignment</em></p>
-              <ul>
-                <li>Prepared a passive information gathering report using only legal public sources.</li>
-                <li>Analyzed WHOIS, DNS, SSL/TLS, technology fingerprinting, and public search results.</li>
-                <li>Documented findings in a structured report format.</li>
-              </ul>
-            </article>
-
-          </div>
-        </div>
-        <!-- End Projects Section -->
-
-      </div>
+        <!-- End Certificates Section -->
 
     </div>
-
-  </div>
 
 </section>
 <!-- /Resume Section -->

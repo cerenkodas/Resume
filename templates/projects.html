@@ -1,0 +1,241 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+    {% if lang == 'en' %}
+        Projects - Ceren Kodaş CV
+    {% else %}
+        Projelerim - Ceren Kodaş CV
+    {% endif %}
+{% endblock %}
+
+{% block body_class %}portfolio-page{% endblock %}
+
+{% block content %}
+
+<!-- Portfolio Section -->
+<section id="portfolio" class="portfolio section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>
+            {% if lang == 'en' %}
+                Projects
+            {% else %}
+                Projelerim
+            {% endif %}
+        </h2>
+
+        <p>
+            {% if lang == 'en' %}
+                Here are some projects and works that reflect my learning<br>
+                process, technical skills, and interests in software development.
+            {% else %}
+                Bu bölümde öğrenme sürecimi, teknik becerilerimi ve yazılım geliştirmeye<br>
+                olan ilgimi yansıtan bazı proje ve çalışmalarımı bulabilirsiniz.
+            {% endif %}
+        </p>
+    </div>
+    <!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4" data-aos="fade-up" data-aos-delay="300">
+
+            <!-- Resume Project -->
+            <div class="col-lg-4 col-md-6">
+                <div class="portfolio-card">
+                    <div class="portfolio-img">
+                        <img src="{% static 'img/portfolio/resume-project.png' %}" alt="Resume Project" class="img-fluid">
+
+                        <div class="portfolio-overlay">
+                            <a href="{% static 'img/portfolio/resume-project.png' %}" class="glightbox portfolio-lightbox">
+                                <i class="bi bi-plus"></i>
+                            </a>
+
+                            <a href="https://github.com/cerenkodas/Resume" target="_blank" class="portfolio-details-link">
+                                <i class="bi bi-github"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-info">
+                        <h4>Resume</h4>
+
+                        <p>
+                            {% if lang == 'en' %}
+                                A personal portfolio website that presents my resume, projects, skills, and contact information in a modern layout.
+                            {% else %}
+                                Özgeçmişimi, projelerimi, yeteneklerimi ve iletişim bilgilerimi modern bir arayüzle sunan kişisel portfolyo web sitesi.
+                            {% endif %}
+                        </p>
+
+                        <div class="portfolio-tags">
+                            <span>Django</span>
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Resume Project -->
+
+            <!-- Dictionary Project -->
+            <div class="col-lg-4 col-md-6">
+                <div class="portfolio-card">
+                    <div class="portfolio-img">
+                        <img src="{% static 'img/portfolio/dictionary-project.png' %}" alt="dictionary Project" class="img-fluid">
+
+                        <div class="portfolio-overlay">
+                            <a href="{% static 'img/portfolio/dictionary-project.png' %}" class="glightbox portfolio-lightbox">
+                                <i class="bi bi-plus"></i>
+                            </a>
+
+                            <a href="https://github.com/cerenkodas/dictionary" target="_blank" class="portfolio-details-link">
+                                <i class="bi bi-github"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-info">
+                        <h4>Dictionary</h4>
+
+                        <p>
+                            {% if lang == 'en' %}
+                                A multilingual dictionary project that translates words between Turkish, English, and German.
+                            {% else %}
+                                Türkçe, İngilizce ve Almanca arasında kelime çevirisi yapabilen çok dilli sözlük projesi.
+                            {% endif %}
+                        </p>
+
+                        <div class="portfolio-tags">
+                            <span>Node.js</span>
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Dictionary Project -->
+
+            <!-- leagueFixture Project -->
+            <div class="col-lg-4 col-md-6">
+                <div class="portfolio-card">
+                    <div class="portfolio-img">
+                        <img src="{% static 'img/portfolio/league-fixture-project.png' %}" alt="leagueFixture Project" class="img-fluid">
+
+                        <div class="portfolio-overlay">
+                            <a href="{% static 'img/portfolio/league-fixture-project.png' %}" class="glightbox portfolio-lightbox">
+                                <i class="bi bi-plus"></i>
+                            </a>
+
+                            <a href="https://github.com/cerenkodas/leagueFixture" target="_blank" class="portfolio-details-link">
+                                <i class="bi bi-github"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-info">
+                        <h4>LeagueFixture</h4>
+
+                        <p>
+                            {% if lang == 'en' %}
+                                A league fixture project that manages match schedules, scores, standings, and goal difference calculations.
+                            {% else %}
+                                Maç fikstürü, skor tablosu, puan durumu ve averaj hesaplamalarını yöneten lig fikstür projesi.
+                            {% endif %}
+                        </p>
+
+                        <div class="portfolio-tags">
+                            <span>Node.js</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End leagueFixture Project -->
+
+            <!-- PlantLeafDiseaseDetection Project -->
+            <div class="col-lg-4 col-md-6">
+                <div class="portfolio-card">
+                    <div class="portfolio-img">
+                        <img src="{% static 'img/portfolio/plant-leaf-disease-detection-project.png' %}" alt="PlantLeafDiseaseDetection Project" class="img-fluid">
+
+                        <div class="portfolio-overlay">
+                            <a href="{% static 'img/portfolio/plant-leaf-disease-detection-project.png' %}" class="glightbox portfolio-lightbox">
+                                <i class="bi bi-plus"></i>
+                            </a>
+
+                            <span class="portfolio-details-link" title="{% if lang == 'en' %}GitHub link will be added soon{% else %}GitHub linki yakında eklenecek{% endif %}">
+                                <i class="bi bi-hourglass-split"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-info">
+                        <h4>PlantLeafDiseaseDetection</h4>
+
+                        <p>
+                            {% if lang == 'en' %}
+                                A deep learning project focused on detecting plant leaf diseases using image classification techniques.
+                            {% else %}
+                                Görüntü sınıflandırma teknikleriyle bitki yaprak hastalıklarını tespit etmeye odaklanan derin öğrenme projesi.
+                            {% endif %}
+                        </p>
+
+                        <div class="portfolio-tags">
+                            <span>Deep Learning</span>
+                            <span>CNN</span>
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End PlantLeafDiseaseDetection Project -->
+
+            <!-- RecipeWebsite Project -->
+            <div class="col-lg-4 col-md-6">
+                <div class="portfolio-card">
+                    <div class="portfolio-img">
+                        <img src="{% static 'img/portfolio/recipe-website-project.png' %}" alt="RecipeWebsite Project" class="img-fluid">
+
+                        <div class="portfolio-overlay">
+                            <a href="{% static 'img/portfolio/recipe-website-project.png' %}" class="glightbox portfolio-lightbox">
+                                <i class="bi bi-plus"></i>
+                            </a>
+
+                            <span class="portfolio-details-link" title="{% if lang == 'en' %}GitHub link will be added soon{% else %}GitHub linki yakında eklenecek{% endif %}">
+                                <i class="bi bi-hourglass-split"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-info">
+                        <h4>RecipeWebsite</h4>
+
+                        <p>
+                            {% if lang == 'en' %}
+                                A dessert recipe website with category pages, recipe content, and a user-friendly interface.
+                            {% else %}
+                                Kategori sayfaları, tarif içerikleri ve kullanıcı dostu arayüzü olan tatlı tarifi web sitesi.
+                            {% endif %}
+                        </p>
+
+                        <div class="portfolio-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End RecipeWebsite Project -->
+
+        </div>
+
+    </div>
+
+</section>
+<!-- /Portfolio Section -->
+
+{% endblock %}
