@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import ContactMessageForm
+from core.models import ContactInfo
 
 
 def contact_view(request):
     lang = request.GET.get('lang', 'tr')
+    contact_info = ContactInfo.objects.filter(is_active=True).first()
 
     if request.method == 'POST':
         form = ContactMessageForm(request.POST)
@@ -29,4 +31,5 @@ def contact_view(request):
     return render(request, 'contact.html', {
         'form': form,
         'lang': lang,
+        'contact_info': contact_info,
     })

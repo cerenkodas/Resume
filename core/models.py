@@ -286,3 +286,18 @@ class ContactInfo(models.Model):
 
     def __str__(self):
         return self.email
+
+class ProfessionalSkill(models.Model):
+    title_tr = models.CharField(max_length=150)
+    title_en = models.CharField(max_length=150)
+    percentage = models.PositiveIntegerField(default=50)
+    order = models.PositiveIntegerField(default=0)
+    is_active = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ["order"]
+        verbose_name = "Professional Skill"
+        verbose_name_plural = "Professional Skills"
+
+    def __str__(self):
+        return f"{self.title_en} - {self.percentage}%"

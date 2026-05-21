@@ -44,18 +44,34 @@
                 <div class="info-box" data-aos="fade-up" data-aos-delay="200">
 
                     <h3>
-                        {% if lang == 'en' %}
-                            Contact Info
+                        {% if contact_info %}
+                            {% if lang == 'en' %}
+                                {{ contact_info.title_en }}
+                            {% else %}
+                                {{ contact_info.title_tr }}
+                            {% endif %}
                         {% else %}
-                            İletişim Bilgileri
+                            {% if lang == 'en' %}
+                                Contact Info
+                            {% else %}
+                                İletişim Bilgileri
+                            {% endif %}
                         {% endif %}
                     </h3>
 
                     <p>
-                        {% if lang == 'en' %}
-                            You can contact me for academic studies, internship opportunities, and collaborative projects.
+                        {% if contact_info %}
+                            {% if lang == 'en' %}
+                                {{ contact_info.description_en }}
+                            {% else %}
+                                {{ contact_info.description_tr }}
+                            {% endif %}
                         {% else %}
-                            Akademik çalışmalar, staj fırsatları ve iş birliği projeleri için benimle iletişime geçebilirsiniz.
+                            {% if lang == 'en' %}
+                                You can contact me for academic studies, internship opportunities, and collaborative projects.
+                            {% else %}
+                                Akademik çalışmalar, staj fırsatları ve iş birliği projeleri için benimle iletişime geçebilirsiniz.
+                            {% endif %}
                         {% endif %}
                     </p>
 
@@ -72,7 +88,18 @@
                                     Konum
                                 {% endif %}
                             </h4>
-                            <p>Tuzla, İstanbul, Türkiye</p>
+
+                            <p>
+                                {% if contact_info %}
+                                    {% if lang == 'en' %}
+                                        {{ contact_info.location_en }}
+                                    {% else %}
+                                        {{ contact_info.location_tr }}
+                                    {% endif %}
+                                {% else %}
+                                    Tuzla, İstanbul, Türkiye
+                                {% endif %}
+                            </p>
                         </div>
                     </div>
 
@@ -89,7 +116,14 @@
                                     E-posta
                                 {% endif %}
                             </h4>
-                            <p>cerenkodass34@gmail.com</p>
+
+                            <p>
+                                {% if contact_info %}
+                                    {{ contact_info.email }}
+                                {% else %}
+                                    cerenkodass34@gmail.com
+                                {% endif %}
+                            </p>
                         </div>
                     </div>
 
@@ -100,9 +134,15 @@
 
                         <div class="content">
                             <h4>LinkedIn</h4>
+
                             <p>
-                                <a href="https://www.linkedin.com/in/cerenkodas/" target="_blank">
-                                    https://www.linkedin.com/in/cerenkodas/
+                                <a href="{% if contact_info %}{{ contact_info.linkedin_url }}{% else %}https://www.linkedin.com/in/cerenkodas/{% endif %}"
+                                   target="_blank">
+                                    {% if contact_info %}
+                                        {{ contact_info.linkedin_url }}
+                                    {% else %}
+                                        https://www.linkedin.com/in/cerenkodas/
+                                    {% endif %}
                                 </a>
                             </p>
                         </div>

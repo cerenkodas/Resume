@@ -15,6 +15,7 @@ from .models import (
     Technology,
     Project,
     ContactInfo,
+    ProfessionalSkill,
 )
 
 
@@ -136,3 +137,11 @@ class ProjectAdmin(admin.ModelAdmin):
 class ContactInfoAdmin(admin.ModelAdmin):
     list_display = ('email', 'location_en', 'location_tr', 'is_active')
     list_filter = ('is_active',)
+
+
+@admin.register(ProfessionalSkill)
+class ProfessionalSkillAdmin(admin.ModelAdmin):
+    list_display = ('title_en', 'title_tr', 'percentage', 'order', 'is_active')
+    list_filter = ('is_active',)
+    search_fields = ('title_en', 'title_tr')
+    ordering = ('order',)

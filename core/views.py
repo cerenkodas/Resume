@@ -1,5 +1,18 @@
 from django.shortcuts import render
-from .models import HomeHero, HomeFloatingCard, SocialMedia, SiteSetting
+from .models import (
+    HomeHero,
+    HomeFloatingCard,
+    SocialMedia,
+    SiteSetting,
+    AboutInfo,
+    AboutCard,
+    ResumeEducation,
+    ResumeExperience,
+    Certificate,
+    ProfessionalSkill,
+    SkillGroup,
+    Project,
+)
 
 
 def get_lang(request):
@@ -22,24 +35,58 @@ def index(request):
         'site_setting': site_setting,
     })
 
-def index(request):
-    return render(request, 'index.html', {'lang': get_lang(request)})
-
 
 def about(request):
-    return render(request, 'about.html', {'lang': get_lang(request)})
+    lang = get_lang(request)
+
+    about_info = AboutInfo.objects.filter(is_active=True).first()
+    personal_cards = AboutCard.objects.filter(is_active=True, card_type='personal')
+    interest_cards = AboutCard.objects.filter(is_active=True, card_type='interest')
+
+    return render(request, 'about.html', {
+        'lang': lang,
+        'about_info': about_info,
+        'personal_cards': personal_cards,
+        'interest_cards': interest_cards,
+    })
 
 
 def resume(request):
-    return render(request, 'resume.html', {'lang': get_lang(request)})
+    lang = get_lang(request)
 
+    educations = ResumeEducation.objects.filter(is_active=True)
+    experiences = ResumeExperience.objects.filter(is_active=True)
+    certificates = Certificate.objects.filter(is_active=True)
+    professional_skills = ProfessionalSkill.objects.filter(is_active=True)
+
+    return render(request, 'resume.html', {
+        'lang': lang,
+        'educations': educations,
+        'experiences': experiences,
+        'certificates': certificates,
+        'professional_skills': professional_skills,
+    })
 
 def skills(request):
-    return render(request, 'skills.html', {'lang': get_lang(request)})
+    lang = get_lang(request)
+
+    skill_groups = SkillGroup.objects.filter(is_active=True)
+
+    return render(request, 'skills.html', {
+        'lang': lang,
+        'skill_groups': skill_groups,
+    })
 
 
 def portfolio(request):
-    return render(request, 'projects.html', {'lang': get_lang(request)})
+    lang = get_lang(request)
+
+    projects = Project.objects.filter(is_active=True)
+
+    return render(request, 'projects.html', {
+        'lang': lang,
+        'projects': projects,
+    })
 
 
 def contact(request):

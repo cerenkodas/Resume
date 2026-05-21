@@ -53,53 +53,65 @@
 
                     <div class="resume-content">
 
-                        <article class="education-item">
-                            <h4>
-                                {% if lang == 'en' %}
-                                    Mehmet Tekinalp Anatolian High School
-                                {% else %}
-                                    Mehmet Tekinalp Anadolu Lisesi
+                        {% for education in educations %}
+                            <article class="education-item">
+                                <h4>
+                                    {% if lang == 'en' %}
+                                        {{ education.school_name_en }}
+                                        {% if education.department_en %}
+                                            | {{ education.department_en }}
+                                        {% endif %}
+                                    {% else %}
+                                        {{ education.school_name_tr }}
+                                        {% if education.department_tr %}
+                                            | {{ education.department_tr }}
+                                        {% endif %}
+                                    {% endif %}
+                                </h4>
+
+                                <h5>
+                                    {% if lang == 'en' %}
+                                        {{ education.date_text_en }}
+                                    {% else %}
+                                        {{ education.date_text_tr }}
+                                    {% endif %}
+                                </h5>
+
+                                {% if education.gpa %}
+                                    <p><strong>GPA:</strong> {{ education.gpa }}</p>
                                 {% endif %}
-                            </h4>
 
-                            <h5>
                                 {% if lang == 'en' %}
-                                    September 2018 - June 2021
+                                    {% if education.description_en %}
+                                        <p>{{ education.description_en }}</p>
+                                    {% endif %}
                                 {% else %}
-                                    Eylül 2018 - Haziran 2021
+                                    {% if education.description_tr %}
+                                        <p>{{ education.description_tr }}</p>
+                                    {% endif %}
                                 {% endif %}
-                            </h5>
+                            </article>
+                        {% empty %}
+                            <article class="education-item">
+                                <h4>
+                                    {% if lang == 'en' %}
+                                        Mehmet Tekinalp Anatolian High School
+                                    {% else %}
+                                        Mehmet Tekinalp Anadolu Lisesi
+                                    {% endif %}
+                                </h4>
 
-                            <p><strong>GPA:</strong> 92.76 / 100</p>
-                        </article>
+                                <h5>
+                                    {% if lang == 'en' %}
+                                        September 2018 - June 2021
+                                    {% else %}
+                                        Eylül 2018 - Haziran 2021
+                                    {% endif %}
+                                </h5>
 
-                        <article class="education-item">
-                            <h4>
-                                {% if lang == 'en' %}
-                                    Piri Reis University | Information Systems Engineering
-                                {% else %}
-                                    Piri Reis Üniversitesi | Bilişim Sistemleri Mühendisliği
-                                {% endif %}
-                            </h4>
-
-                            <h5>
-                                {% if lang == 'en' %}
-                                    September 2022 - Current
-                                {% else %}
-                                    Eylül 2022 - Devam Ediyor
-                                {% endif %}
-                            </h5>
-
-                            <p><strong>GPA:</strong> 3.20 / 4.00</p>
-
-                            <p>
-                                {% if lang == 'en' %}
-                                    During my studies in Information Systems Engineering at Piri Reis University, I developed a strong academic foundation in software development, algorithms, and database systems. Through my coursework, I improved my analytical thinking and problem-solving skills and gained a comprehensive understanding of software development processes. I also had the opportunity to work on team-based projects, which helped me strengthen both my technical and communication skills. In addition, I am currently taking courses to further develop my knowledge in data science and artificial intelligence.
-                                {% else %}
-                                    Piri Reis Üniversitesi Bilişim Sistemleri Mühendisliği bölümündeki eğitimim boyunca yazılım geliştirme, algoritmalar ve veritabanı sistemleri alanlarında güçlü bir akademik temel edindim. Aldığım dersler sayesinde analitik düşünme ve problem çözme becerilerimi geliştirdim; yazılım geliştirme süreçleri hakkında kapsamlı bilgi kazandım. Ayrıca takım çalışmasına dayalı projelerde yer alarak hem teknik hem de iletişim becerilerimi geliştirme fırsatı buldum. Bunun yanında veri bilimi ve yapay zeka alanlarında kendimi geliştirmeye devam ediyorum.
-                                {% endif %}
-                            </p>
-                        </article>
+                                <p><strong>GPA:</strong> 92.76 / 100</p>
+                            </article>
+                        {% endfor %}
 
                     </div>
                 </div>
@@ -121,55 +133,82 @@
 
                     <div class="resume-content">
 
-                        <article class="experience-item">
-                            <h4>
-                                {% if lang == 'en' %}
-                                    BMS Proje | Web Development Intern
-                                {% else %}
-                                    BMS Proje | Web Geliştirme Stajyeri
-                                {% endif %}
-                            </h4>
+                        {% for experience in experiences %}
+                            <article class="experience-item">
+                                <h4>
+                                    {{ experience.company_name }} |
+                                    {% if lang == 'en' %}
+                                        {{ experience.position_en }}
+                                    {% else %}
+                                        {{ experience.position_tr }}
+                                    {% endif %}
+                                </h4>
 
-                            <h5>
-                                {% if lang == 'en' %}
-                                    July 2025 - August 2025
-                                {% else %}
-                                    Temmuz 2025 - Ağustos 2025
-                                {% endif %}
-                            </h5>
+                                <h5>
+                                    {% if lang == 'en' %}
+                                        {{ experience.date_text_en }}
+                                    {% else %}
+                                        {{ experience.date_text_tr }}
+                                    {% endif %}
+                                </h5>
 
-                            <p>
-                                {% if lang == 'en' %}
-                                    I completed my mandatory summer internship at BMS Proje, where I worked on web development projects. During this period, I gained practical experience in front-end technologies such as HTML, CSS, and JavaScript. I participated in developing and improving web pages, worked with data retrieved from databases, and supported the team in building user-friendly web interfaces. This experience helped me strengthen my problem-solving skills and improve my understanding of modern web development practices.
-                                {% else %}
-                                    Zorunlu yaz stajımı BMS Proje’de tamamladım ve bu süreçte web geliştirme projelerinde görev aldım. HTML, CSS ve JavaScript gibi front-end teknolojilerinde pratik deneyim kazandım. Web sayfalarının geliştirilmesi ve iyileştirilmesi süreçlerine katıldım, veritabanından alınan verilerle çalıştım ve kullanıcı dostu web arayüzlerinin oluşturulmasına destek oldum. Bu deneyim, problem çözme becerilerimi geliştirmeme ve modern web geliştirme süreçlerini daha iyi anlamama katkı sağladı.
-                                {% endif %}
-                            </p>
+                                <p>
+                                    {% if lang == 'en' %}
+                                        {{ experience.description_en }}
+                                    {% else %}
+                                        {{ experience.description_tr }}
+                                    {% endif %}
+                                </p>
 
-                            <h5>
-                                {% if lang == 'en' %}
-                                    Professional Skills and Competencies
-                                {% else %}
-                                    Kazanılan Beceriler ve Yetkinlikler
-                                {% endif %}
-                            </h5>
+                                {% if experience.skills.all %}
+                                    <h5>
+                                        {% if lang == 'en' %}
+                                            Professional Skills and Competencies
+                                        {% else %}
+                                            Kazanılan Beceriler ve Yetkinlikler
+                                        {% endif %}
+                                    </h5>
 
-                            <ul>
-                                {% if lang == 'en' %}
-                                    <li>Basic experience in HTML, CSS, and JavaScript</li>
-                                    <li>Understanding of web development fundamentals</li>
-                                    <li>Ability to work collaboratively in a development team</li>
-                                    <li>Problem-solving and analytical thinking skills</li>
-                                    <li>Willingness to learn new technologies and improve technical skills</li>
-                                {% else %}
-                                    <li>HTML, CSS ve JavaScript alanlarında temel deneyim</li>
-                                    <li>Web geliştirme temellerini anlama</li>
-                                    <li>Geliştirme ekibi içinde iş birliğiyle çalışma becerisi</li>
-                                    <li>Problem çözme ve analitik düşünme becerileri</li>
-                                    <li>Yeni teknolojileri öğrenme ve teknik becerileri geliştirme isteği</li>
+                                    <ul>
+                                        {% for skill in experience.skills.all %}
+                                            <li>
+                                                {% if lang == 'en' %}
+                                                    {{ skill.skill_text_en }}
+                                                {% else %}
+                                                    {{ skill.skill_text_tr }}
+                                                {% endif %}
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
                                 {% endif %}
-                            </ul>
-                        </article>
+                            </article>
+                        {% empty %}
+                            <article class="experience-item">
+                                <h4>
+                                    {% if lang == 'en' %}
+                                        BMS Proje | Web Development Intern
+                                    {% else %}
+                                        BMS Proje | Web Geliştirme Stajyeri
+                                    {% endif %}
+                                </h4>
+
+                                <h5>
+                                    {% if lang == 'en' %}
+                                        July 2025 - August 2025
+                                    {% else %}
+                                        Temmuz 2025 - Ağustos 2025
+                                    {% endif %}
+                                </h5>
+
+                                <p>
+                                    {% if lang == 'en' %}
+                                        I completed my mandatory summer internship at BMS Proje, where I worked on web development projects.
+                                    {% else %}
+                                        Zorunlu yaz stajımı BMS Proje’de tamamladım ve bu süreçte web geliştirme projelerinde görev aldım.
+                                    {% endif %}
+                                </p>
+                            </article>
+                        {% endfor %}
 
                     </div>
                 </div>
@@ -178,6 +217,7 @@
             <!-- End Work Experience Section -->
 
         </div>
+
         <!-- Professional Skills Progress Section -->
         <div class="row mt-5">
             <div class="col-lg-12">
@@ -192,79 +232,99 @@
                         {% endif %}
                     </h3>
 
-                    <div class="skill-progress-item">
-                        <div class="skill-progress-header">
-                    <span>
-                        {% if lang == 'en' %}
-                            Frontend Development
-                        {% else %}
-                            Frontend Geliştirme
-                        {% endif %}
-                    </span>
-                            <span>90%</span>
+                    {% for skill in professional_skills %}
+                        <div class="skill-progress-item">
+                            <div class="skill-progress-header">
+                                <span>
+                                    {% if lang == 'en' %}
+                                        {{ skill.title_en }}
+                                    {% else %}
+                                        {{ skill.title_tr }}
+                                    {% endif %}
+                                </span>
+                                <span>{{ skill.percentage }}%</span>
+                            </div>
+
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: {{ skill.percentage }}%;"></div>
+                            </div>
+                        </div>
+                    {% empty %}
+                        <div class="skill-progress-item">
+                            <div class="skill-progress-header">
+                                <span>
+                                    {% if lang == 'en' %}
+                                        Frontend Development
+                                    {% else %}
+                                        Frontend Geliştirme
+                                    {% endif %}
+                                </span>
+                                <span>90%</span>
+                            </div>
+
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 90%;"></div>
+                            </div>
                         </div>
 
-                        <div class="skill-progress-bar">
-                            <div class="skill-progress-fill" style="width: 90%;"></div>
-                        </div>
-                    </div>
+                        <div class="skill-progress-item">
+                            <div class="skill-progress-header">
+                                <span>
+                                    {% if lang == 'en' %}
+                                        Backend Development
+                                    {% else %}
+                                        Backend Geliştirme
+                                    {% endif %}
+                                </span>
+                                <span>80%</span>
+                            </div>
 
-                    <div class="skill-progress-item">
-                        <div class="skill-progress-header">
-                    <span>
-                        {% if lang == 'en' %}
-                            Backend Development
-                        {% else %}
-                            Backend Geliştirme
-                        {% endif %}
-                    </span>
-                            <span>80%</span>
-                        </div>
-
-                        <div class="skill-progress-bar">
-                            <div class="skill-progress-fill" style="width: 80%;"></div>
-                        </div>
-                    </div>
-
-                    <div class="skill-progress-item">
-                        <div class="skill-progress-header">
-                    <span>
-                        {% if lang == 'en' %}
-                            Database Management
-                        {% else %}
-                            Veritabanı Yönetimi
-                        {% endif %}
-                    </span>
-                            <span>75%</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 80%;"></div>
+                            </div>
                         </div>
 
-                        <div class="skill-progress-bar">
-                            <div class="skill-progress-fill" style="width: 75%;"></div>
-                        </div>
-                    </div>
+                        <div class="skill-progress-item">
+                            <div class="skill-progress-header">
+                                <span>
+                                    {% if lang == 'en' %}
+                                        Database Management
+                                    {% else %}
+                                        Veritabanı Yönetimi
+                                    {% endif %}
+                                </span>
+                                <span>75%</span>
+                            </div>
 
-                    <div class="skill-progress-item">
-                        <div class="skill-progress-header">
-                    <span>
-                        {% if lang == 'en' %}
-                            Project Development
-                        {% else %}
-                            Proje Geliştirme
-                        {% endif %}
-                    </span>
-                            <span>85%</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 75%;"></div>
+                            </div>
                         </div>
 
-                        <div class="skill-progress-bar">
-                            <div class="skill-progress-fill" style="width: 85%;"></div>
+                        <div class="skill-progress-item">
+                            <div class="skill-progress-header">
+                                <span>
+                                    {% if lang == 'en' %}
+                                        Project Development
+                                    {% else %}
+                                        Proje Geliştirme
+                                    {% endif %}
+                                </span>
+                                <span>85%</span>
+                            </div>
+
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 85%;"></div>
+                            </div>
                         </div>
-                    </div>
+                    {% endfor %}
 
                 </div>
 
             </div>
         </div>
         <!-- End Professional Skills Progress Section -->
+
         <!-- Certificates Section -->
         <div class="row mt-5">
             <div class="col-lg-12">
@@ -280,7 +340,11 @@
 
                     <div class="resume-content">
                         <ul>
-                            {% if lang == 'en' %}
+                            {% for certificate in certificates %}
+                                <li>
+                                    {{ certificate.certificate_name }} — {{ certificate.organization }} | {{ certificate.year }}
+                                </li>
+                            {% empty %}
                                 <li>Digital Banking Bootcamp Program — DenizBank & İlerisi Gençlik | 2025</li>
                                 <li>HTML Essentials — Cisco Networking Academy | 2025</li>
                                 <li>CSS Essentials — Cisco Networking Academy | 2025</li>
@@ -288,15 +352,7 @@
                                 <li>Data Science Essentials with Python — Cisco Networking Academy | 2026</li>
                                 <li>Introduction to Cybersecurity — Cisco Networking Academy | 2026</li>
                                 <li>Linux Essentials — Cisco Networking Academy | 2026</li>
-                            {% else %}
-                                <li>Digital Banking Bootcamp Program — DenizBank & İlerisi Gençlik | 2025</li>
-                                <li>HTML Essentials — Cisco Networking Academy | 2025</li>
-                                <li>CSS Essentials — Cisco Networking Academy | 2025</li>
-                                <li>Sıfırdan Django - Docker - Nginx - AWS S3 - Server Deploy — Udemy | 2026</li>
-                                <li>Data Science Essentials with Python — Cisco Networking Academy | 2026</li>
-                                <li>Introduction to Cybersecurity — Cisco Networking Academy | 2026</li>
-                                <li>Linux Essentials — Cisco Networking Academy | 2026</li>
-                            {% endif %}
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>

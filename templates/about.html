@@ -35,43 +35,84 @@
 
             <div class="col-lg-7" data-aos="fade-right" data-aos-delay="150">
                 <div class="intro-content">
+
                     <span class="eyebrow">
-                        {% if lang == 'en' %}
-                            About Me
+                        {% if about_info %}
+                            {% if lang == 'en' %}
+                                {{ about_info.eyebrow_en }}
+                            {% else %}
+                                {{ about_info.eyebrow_tr }}
+                            {% endif %}
                         {% else %}
-                            Kendim Hakkında
+                            {% if lang == 'en' %}
+                                About Me
+                            {% else %}
+                                Hakkımda
+                            {% endif %}
                         {% endif %}
                     </span>
 
                     <h2 class="headline">
-                        {% if lang == 'en' %}
-                            Hello, I'm Ceren Kodaş
+                        {% if about_info %}
+                            {% if lang == 'en' %}
+                                {{ about_info.title_en }}
+                            {% else %}
+                                {{ about_info.title_tr }}
+                            {% endif %}
                         {% else %}
-                            Merhaba, ben Ceren Kodaş
+                            {% if lang == 'en' %}
+                                Hello, I'm Ceren Kodaş
+                            {% else %}
+                                Merhaba, ben Ceren Kodaş
+                            {% endif %}
                         {% endif %}
                     </h2>
 
                     <p>
-                        {% if lang == 'en' %}
-                            I am a 3rd year Information Systems Engineering student with a strong interest in technology and a goal of continuously improving myself in software development.
+                        {% if about_info %}
+                            {% if lang == 'en' %}
+                                {{ about_info.description_1_en }}
+                            {% else %}
+                                {{ about_info.description_1_tr }}
+                            {% endif %}
                         {% else %}
-                            Teknolojiye ilgi duyan, yazılım geliştirme alanında kendini geliştirmeyi hedefleyen 3. sınıf Bilişim Sistemleri Mühendisliği öğrencisiyim.
+                            {% if lang == 'en' %}
+                                I am a 3rd year Information Systems Engineering student with a strong interest in technology and a goal of continuously improving myself in software development.
+                            {% else %}
+                                Teknolojiye ilgi duyan, yazılım geliştirme alanında kendini geliştirmeyi hedefleyen 3. sınıf Bilişim Sistemleri Mühendisliği öğrencisiyim.
+                            {% endif %}
                         {% endif %}
                     </p>
 
                     <p>
-                        {% if lang == 'en' %}
-                            I improve myself by developing academic and personal projects, and I aim to strengthen my problem-solving, research, and project development skills through practical work.
+                        {% if about_info %}
+                            {% if lang == 'en' %}
+                                {{ about_info.description_2_en }}
+                            {% else %}
+                                {{ about_info.description_2_tr }}
+                            {% endif %}
                         {% else %}
-                            Akademik ve kişisel projeler geliştirerek kendimi geliştirmeye çalışıyor; problem çözme, araştırma ve proje geliştirme becerilerimi uygulamalı çalışmalarla güçlendirmeyi amaçlıyorum.
+                            {% if lang == 'en' %}
+                                I improve myself by developing academic and personal projects, and I aim to strengthen my problem-solving, research, and project development skills through practical work.
+                            {% else %}
+                                Akademik ve kişisel projeler geliştirerek kendimi geliştirmeye çalışıyor; problem çözme, araştırma ve proje geliştirme becerilerimi uygulamalı çalışmalarla güçlendirmeyi amaçlıyorum.
+                            {% endif %}
                         {% endif %}
                     </p>
 
                     <p>
-                        {% if lang == 'en' %}
-                            I am open to learning new technologies, interested in teamwork, and motivated to create user-friendly, organized, and functional software projects.
+                        {% if about_info %}
+                            {% if lang == 'en' %}
+                                {{ about_info.description_3_en }}
+                            {% else %}
+                                {{ about_info.description_3_tr }}
+                            {% endif %}
                         {% else %}
-                            Yeni teknolojileri öğrenmeye açık, takım çalışmasına uyumlu ve kullanıcı dostu, düzenli ve işlevsel yazılım projeleri üretmeye istekli bir geliştirici adayıyım.
+                            {% if lang == 'en' %}
+                                I am open to learning new technologies, interested in teamwork, and motivated to create user-friendly, organized, and functional software projects.
+                            {% else %}
+                                Yeni teknolojileri öğrenmeye açık, takım çalışmasına uyumlu ve kullanıcı dostu, düzenli ve işlevsel yazılım projeleri üretmeye istekli bir geliştirici adayıyım.
+                            {% endif %}
                         {% endif %}
                     </p>
 
@@ -94,12 +135,21 @@
                             <i class="bi bi-file-earmark-person"></i>
                         </a>
                     </div>
+
                 </div>
             </div>
 
             <div class="col-lg-5" data-aos="zoom-in" data-aos-delay="250">
                 <figure class="profile-figure text-center text-lg-end">
-                    <img src="{% static 'img/profile/ceren-profile.jpeg' %}" alt="Ceren Kodaş" class="img-fluid profile-photo">
+                    {% if about_info and about_info.profile_image %}
+                        <img src="{{ about_info.profile_image.url }}"
+                             alt="{% if lang == 'en' %}Ceren Kodaş Profile Photo{% else %}Ceren Kodaş Profil Fotoğrafı{% endif %}"
+                             class="img-fluid profile-photo">
+                    {% else %}
+                        <img src="{% static 'img/profile/ceren-profile.jpeg' %}"
+                             alt="Ceren Kodaş"
+                             class="img-fluid profile-photo">
+                    {% endif %}
                 </figure>
             </div>
 
@@ -110,79 +160,67 @@
         <div class="mb-5">
             <div class="row g-4">
 
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-                    <div class="skill-item">
-                        <i class="bi bi-person"></i>
-                        <h3>
-                            {% if lang == 'en' %}
-                                Name
-                            {% else %}
-                                Ad Soyad
-                            {% endif %}
-                        </h3>
-                        <p>Ceren Kodaş</p>
-                    </div>
-                </div>
+                {% for card in personal_cards %}
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="{{ forloop.counter }}00">
+                        <div class="skill-item">
+                            <i class="{{ card.icon_class }}"></i>
 
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
-                    <div class="skill-item">
-                        <i class="bi bi-mortarboard"></i>
-                        <h3>
-                            {% if lang == 'en' %}
-                                Department
-                            {% else %}
-                                Bölüm
-                            {% endif %}
-                        </h3>
-                        <p>
-                            {% if lang == 'en' %}
-                                Information Systems Engineering
-                            {% else %}
-                                Bilişim Sistemleri Mühendisliği
-                            {% endif %}
-                        </p>
-                    </div>
-                </div>
+                            <h3>
+                                {% if lang == 'en' %}
+                                    {{ card.title_en }}
+                                {% else %}
+                                    {{ card.title_tr }}
+                                {% endif %}
+                            </h3>
 
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-                    <div class="skill-item">
-                        <i class="bi bi-calendar-check"></i>
-                        <h3>
-                            {% if lang == 'en' %}
-                                Class
-                            {% else %}
-                                Sınıf
-                            {% endif %}
-                        </h3>
-                        <p>
-                            {% if lang == 'en' %}
-                                3rd Year
-                            {% else %}
-                                3. Sınıf
-                            {% endif %}
-                        </p>
+                            <p>
+                                {% if lang == 'en' %}
+                                    {{ card.value_en }}
+                                {% else %}
+                                    {{ card.value_tr }}
+                                {% endif %}
+                            </p>
+                        </div>
                     </div>
-                </div>
+                {% empty %}
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                        <div class="skill-item">
+                            <i class="bi bi-person"></i>
+                            <h3>{% if lang == 'en' %}Name{% else %}Ad Soyad{% endif %}</h3>
+                            <p>Ceren Kodaş</p>
+                        </div>
+                    </div>
 
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="250">
-                    <div class="skill-item">
-                        <i class="bi bi-geo-alt"></i>
-                        <h3>
-                            {% if lang == 'en' %}
-                                Location
-                            {% else %}
-                                Konum
-                            {% endif %}
-                        </h3>
-                        <p>
-                            {% if lang == 'en' %}
-                                Tuzla, Istanbul, Türkiye
-                            {% else %}
-                                Tuzla, İstanbul, Türkiye
-                            {% endif %}
-                        </p>
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
+                        <div class="skill-item">
+                            <i class="bi bi-mortarboard"></i>
+                            <h3>{% if lang == 'en' %}Department{% else %}Bölüm{% endif %}</h3>
+                            <p>
+                                {% if lang == 'en' %}
+                                    Information Systems Engineering
+                                {% else %}
+                                    Bilişim Sistemleri Mühendisliği
+                                {% endif %}
+                            </p>
+                        </div>
                     </div>
-                </div>
+
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                        <div class="skill-item">
+                            <i class="bi bi-calendar-check"></i>
+                            <h3>{% if lang == 'en' %}Class{% else %}Sınıf{% endif %}</h3>
+                            <p>{% if lang == 'en' %}3rd Year{% else %}3. Sınıf{% endif %}</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="250">
+                        <div class="skill-item">
+                            <i class="bi bi-geo-alt"></i>
+                            <h3>{% if lang == 'en' %}Location{% else %}Konum{% endif %}</h3>
+                            <p>Tuzla, İstanbul, Türkiye</p>
+                        </div>
+                    </div>
+                {% endfor %}
 
             </div>
         </div>
@@ -192,85 +230,85 @@
         <div class="mb-5">
             <div class="row g-4">
 
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-                    <div class="skill-item">
-                        <i class="bi bi-code-slash"></i>
-                        <h3>
-                            {% if lang == 'en' %}
-                                Software Development
-                            {% else %}
-                                Yazılım Geliştirme
-                            {% endif %}
-                        </h3>
-                        <p>
-                            {% if lang == 'en' %}
-                                I enjoy developing projects and improving my coding skills.
-                            {% else %}
-                                Projeler geliştirerek kodlama becerilerimi geliştirmeyi seviyorum.
-                            {% endif %}
-                        </p>
-                    </div>
-                </div>
+                {% for card in interest_cards %}
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="{{ forloop.counter }}00">
+                        <div class="skill-item">
+                            <i class="{{ card.icon_class }}"></i>
 
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
-                    <div class="skill-item">
-                        <i class="bi bi-window-stack"></i>
-                        <h3>
-                            {% if lang == 'en' %}
-                                Web Technologies
-                            {% else %}
-                                Web Teknolojileri
-                            {% endif %}
-                        </h3>
-                        <p>
-                            {% if lang == 'en' %}
-                                I am interested in building responsive and user-friendly web projects.
-                            {% else %}
-                                Responsive ve kullanıcı dostu web projeleri geliştirmeye ilgi duyuyorum.
-                            {% endif %}
-                        </p>
-                    </div>
-                </div>
+                            <h3>
+                                {% if lang == 'en' %}
+                                    {{ card.title_en }}
+                                {% else %}
+                                    {{ card.title_tr }}
+                                {% endif %}
+                            </h3>
 
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-                    <div class="skill-item">
-                        <i class="bi bi-cpu"></i>
-                        <h3>
-                            {% if lang == 'en' %}
-                                Artificial Intelligence
-                            {% else %}
-                                Yapay Zeka
-                            {% endif %}
-                        </h3>
-                        <p>
-                            {% if lang == 'en' %}
-                                I am interested in AI, deep learning, and image classification projects.
-                            {% else %}
-                                Yapay zeka, derin öğrenme ve görüntü sınıflandırma projelerine ilgi duyuyorum.
-                            {% endif %}
-                        </p>
+                            <p>
+                                {% if lang == 'en' %}
+                                    {{ card.description_en }}
+                                {% else %}
+                                    {{ card.description_tr }}
+                                {% endif %}
+                            </p>
+                        </div>
                     </div>
-                </div>
+                {% empty %}
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                        <div class="skill-item">
+                            <i class="bi bi-code-slash"></i>
+                            <h3>{% if lang == 'en' %}Software Development{% else %}Yazılım Geliştirme{% endif %}</h3>
+                            <p>
+                                {% if lang == 'en' %}
+                                    I enjoy developing projects and improving my coding skills.
+                                {% else %}
+                                    Projeler geliştirerek kodlama becerilerimi geliştirmeyi seviyorum.
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
 
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="250">
-                    <div class="skill-item">
-                        <i class="bi bi-database"></i>
-                        <h3>
-                            {% if lang == 'en' %}
-                                Data & Databases
-                            {% else %}
-                                Veri ve Veritabanı
-                            {% endif %}
-                        </h3>
-                        <p>
-                            {% if lang == 'en' %}
-                                I aim to improve myself in data-related fields and database systems.
-                            {% else %}
-                                Veriyle ilgili alanlarda ve veritabanı sistemlerinde kendimi geliştirmeyi hedefliyorum.
-                            {% endif %}
-                        </p>
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
+                        <div class="skill-item">
+                            <i class="bi bi-window-stack"></i>
+                            <h3>{% if lang == 'en' %}Web Technologies{% else %}Web Teknolojileri{% endif %}</h3>
+                            <p>
+                                {% if lang == 'en' %}
+                                    I am interested in building responsive and user-friendly web projects.
+                                {% else %}
+                                    Responsive ve kullanıcı dostu web projeleri geliştirmeye ilgi duyuyorum.
+                                {% endif %}
+                            </p>
+                        </div>
                     </div>
-                </div>
+
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                        <div class="skill-item">
+                            <i class="bi bi-cpu"></i>
+                            <h3>{% if lang == 'en' %}Artificial Intelligence{% else %}Yapay Zeka{% endif %}</h3>
+                            <p>
+                                {% if lang == 'en' %}
+                                    I am interested in AI, deep learning, and image classification projects.
+                                {% else %}
+                                    Yapay zeka, derin öğrenme ve görüntü sınıflandırma projelerine ilgi duyuyorum.
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="250">
+                        <div class="skill-item">
+                            <i class="bi bi-database"></i>
+                            <h3>{% if lang == 'en' %}Data & Databases{% else %}Veri ve Veritabanı{% endif %}</h3>
+                            <p>
+                                {% if lang == 'en' %}
+                                    I aim to improve myself in data-related fields and database systems.
+                                {% else %}
+                                    Veriyle ilgili alanlarda ve veritabanı sistemlerinde kendimi geliştirmeyi hedefliyorum.
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                {% endfor %}
 
             </div>
         </div>
@@ -279,10 +317,18 @@
         <!-- Quote -->
         <blockquote class="personal-quote text-center mb-5" data-aos="fade-down" data-aos-delay="200">
             <p>
-                {% if lang == 'en' %}
-                    "My goal is to continuously improve myself in software development by applying the technologies I learn to real projects."
+                {% if about_info %}
+                    {% if lang == 'en' %}
+                        "{{ about_info.quote_en }}"
+                    {% else %}
+                        "{{ about_info.quote_tr }}"
+                    {% endif %}
                 {% else %}
-                    "Amacım, öğrendiğim teknolojileri gerçek projelerde uygulayarak yazılım geliştirme alanında kendimi sürekli ileri taşımaktır."
+                    {% if lang == 'en' %}
+                        "My goal is to continuously improve myself in software development by applying the technologies I learn to real projects."
+                    {% else %}
+                        "Amacım, öğrendiğim teknolojileri gerçek projelerde uygulayarak yazılım geliştirme alanında kendimi sürekli ileri taşımaktır."
+                    {% endif %}
                 {% endif %}
             </p>
         </blockquote>
