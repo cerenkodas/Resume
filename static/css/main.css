@@ -2847,9 +2847,54 @@ section,
   background-color: color-mix(in srgb, var(--surface-color), transparent 70%);
 }
 
-/*--------------------------------------------------------------
-# Starter Section Section
---------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
+}
+
+.professional-skills-box {
+    margin-top: 20px;
+    margin-bottom: 60px;
+    max-width: 650px;
+}
+
+.professional-skills-box h3 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: var(--heading-color);
+    position: relative;
+}
+
+.professional-skills-box h3::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 4px;
+    background: var(--accent-color);
+    margin-top: 14px;
+}
+
+.skill-progress-item {
+    margin-bottom: 26px;
+}
+
+.skill-progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-bottom: 10px;
+}
+
+.skill-progress-bar {
+    width: 100%;
+    height: 13px;
+    background: rgba(20, 157, 221, 0.15);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.skill-progress-fill {
+    height: 100%;
+    background: var(--accent-color);
+    border-radius: 20px;
 }

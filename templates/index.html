@@ -24,10 +24,18 @@
                 <div class="hero-content">
 
                     <h1 data-aos="fade-up" data-aos-delay="200">
-                        {% if lang == 'en' %}
-                            Hello, I'm <span>Ceren !</span>
+                        {% if home_hero %}
+                            {% if lang == 'en' %}
+                                {{ home_hero.title_en }}
+                            {% else %}
+                                {{ home_hero.title_tr }}
+                            {% endif %}
                         {% else %}
-                            Merhaba, ben <span>Ceren !</span>
+                            {% if lang == 'en' %}
+                                Hello, I'm Ceren !
+                            {% else %}
+                                Merhaba, ben Ceren !
+                            {% endif %}
                         {% endif %}
                     </h1>
 
@@ -35,59 +43,80 @@
                         {% if lang == 'en' %}
                             I'm a
                             <span class="typed"
-                                  data-typed-items="Software Developer, Information Systems Engineering Student"></span>
+                                  data-typed-items="{% if home_hero %}{{ home_hero.typed_text_en }}{% else %}Software Developer, Information Systems Engineering Student{% endif %}"></span>
                         {% else %}
                             Ben bir
                             <span class="typed"
-                                  data-typed-items="Yazılım Geliştiricisiyim, Bilişim Sistemleri Mühendisliği Öğrencisiyim"></span>
+                                  data-typed-items="{% if home_hero %}{{ home_hero.typed_text_tr }}{% else %}Yazılım Geliştiricisiyim, Bilişim Sistemleri Mühendisliği Öğrencisiyim{% endif %}"></span>
                         {% endif %}
                     </h2>
 
                     <p data-aos="fade-up" data-aos-delay="400">
-                        {% if lang == 'en' %}
-                            As an Information Systems Engineering student, I continuously improve myself in software
-                            development and data-driven fields. In my academic and personal projects, I focus on
-                            creating
-                            user-oriented, well-structured, and functional solutions while gaining experience by
-                            applying the
-                            technologies I learn to real projects.
+                        {% if home_hero %}
+                            {% if lang == 'en' %}
+                                {{ home_hero.description_en }}
+                            {% else %}
+                                {{ home_hero.description_tr }}
+                            {% endif %}
                         {% else %}
-                            Bilişim Sistemleri Mühendisliği öğrencisi olarak yazılım geliştirme ve
-                            veri odaklı
-                            alanlarda kendimi sürekli geliştiriyorum. Akademik ve kişisel projelerimde kullanıcı odaklı,
-                            düzenli
-                            ve işlevsel çözümler üretmeye önem veriyor; öğrendiğim teknolojileri gerçek projelerde
-                            uygulayarak
-                            deneyim kazanıyorum.
+                            {% if lang == 'en' %}
+                                As an Information Systems Engineering student, I continuously improve myself in software development and data-driven fields.
+                            {% else %}
+                                Bilişim Sistemleri Mühendisliği öğrencisi olarak yazılım geliştirme ve veri odaklı alanlarda kendimi geliştiriyorum.
+                            {% endif %}
                         {% endif %}
                     </p>
 
                     <div class="hero-actions" data-aos="fade-up" data-aos-delay="500">
-                        <a href="/portfolio/?lang={{ lang }}" class="btn btn-primary">
-                            {% if lang == 'en' %}
-                                View My Work
+                        <a href="{% if home_hero %}{{ home_hero.button_1_url }}{% else %}/portfolio/{% endif %}?lang={{ lang }}"
+                           class="btn btn-primary">
+                            {% if home_hero %}
+                                {% if lang == 'en' %}
+                                    {{ home_hero.button_1_text_en }}
+                                {% else %}
+                                    {{ home_hero.button_1_text_tr }}
+                                {% endif %}
                             {% else %}
-                                Projelerimi Gör
+                                {% if lang == 'en' %}
+                                    View My Work
+                                {% else %}
+                                    Projelerimi Gör
+                                {% endif %}
                             {% endif %}
                         </a>
 
-                        <a href="/contact/?lang={{ lang }}" class="btn btn-outline">
-                            {% if lang == 'en' %}
-                                Get In Touch
+                        <a href="{% if home_hero %}{{ home_hero.button_2_url }}{% else %}/contact/{% endif %}?lang={{ lang }}"
+                           class="btn btn-outline">
+                            {% if home_hero %}
+                                {% if lang == 'en' %}
+                                    {{ home_hero.button_2_text_en }}
+                                {% else %}
+                                    {{ home_hero.button_2_text_tr }}
+                                {% endif %}
                             {% else %}
-                                İletişime Geç
+                                {% if lang == 'en' %}
+                                    Get In Touch
+                                {% else %}
+                                    İletişime Geç
+                                {% endif %}
                             {% endif %}
                         </a>
                     </div>
 
                     <div class="social-links" data-aos="fade-up" data-aos-delay="600">
-                        <a href="https://www.linkedin.com/in/cerenkodas/" target="_blank">
-                            <i class="bi bi-linkedin"></i>
-                        </a>
+                        {% for social in social_medias %}
+                            <a href="{{ social.url }}" target="_blank">
+                                <i class="{{ social.icon_class }}"></i>
+                            </a>
+                        {% empty %}
+                            <a href="https://www.linkedin.com/in/cerenkodas/" target="_blank">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
 
-                        <a href="https://github.com/cerenkodas" target="_blank">
-                            <i class="bi bi-github"></i>
-                        </a>
+                            <a href="https://github.com/cerenkodas" target="_blank">
+                                <i class="bi bi-github"></i>
+                            </a>
+                        {% endfor %}
                     </div>
 
                 </div>
@@ -97,44 +126,65 @@
                 <div class="hero-image" data-aos="zoom-in" data-aos-delay="300">
                     <div class="image-wrapper">
 
-                        <img src="{% static 'img/profile/ceren-profile.jpeg' %}"
-                             alt="Ceren Kodaş"
-                             class="img-fluid">
+                        {% if home_hero and home_hero.profile_image %}
+                            <img src="{{ home_hero.profile_image.url }}"
+                                 alt="{% if site_setting %}{{ site_setting.full_name }}{% else %}Ceren Kodaş{% endif %}"
+                                 class="img-fluid">
+                        {% else %}
+                            <img src="{% static 'img/profile/ceren-profile.jpeg' %}"
+                                 alt="Ceren Kodaş"
+                                 class="img-fluid">
+                        {% endif %}
 
                         <div class="floating-elements">
 
-                            <div class="floating-card design" data-aos="fade-left" data-aos-delay="700">
-                                <i class="bi bi-palette"></i>
-                                <span>
-                                    {% if lang == 'en' %}
-                                        Design
-                                    {% else %}
-                                        Tasarım
-                                    {% endif %}
-                                </span>
-                            </div>
+                            {% for card in floating_cards %}
+                                <div class="floating-card {{ card.css_class }}"
+                                     data-aos="{% if card.css_class == 'design' %}fade-left{% elif card.css_class == 'code' %}fade-right{% else %}fade-up{% endif %}"
+                                     data-aos-delay="{{ forloop.counter }}00">
+                                    <i class="{{ card.icon_class }}"></i>
+                                    <span>
+                                        {% if lang == 'en' %}
+                                            {{ card.title_en }}
+                                        {% else %}
+                                            {{ card.title_tr }}
+                                        {% endif %}
+                                    </span>
+                                </div>
+                            {% empty %}
+                                <div class="floating-card design" data-aos="fade-left" data-aos-delay="700">
+                                    <i class="bi bi-palette"></i>
+                                    <span>
+                                        {% if lang == 'en' %}
+                                            Design
+                                        {% else %}
+                                            Tasarım
+                                        {% endif %}
+                                    </span>
+                                </div>
 
-                            <div class="floating-card code" data-aos="fade-right" data-aos-delay="800">
-                                <i class="bi bi-code-slash"></i>
-                                <span>
-                                    {% if lang == 'en' %}
-                                        Code
-                                    {% else %}
-                                        Kod
-                                    {% endif %}
-                                </span>
-                            </div>
+                                <div class="floating-card code" data-aos="fade-right" data-aos-delay="800">
+                                    <i class="bi bi-code-slash"></i>
+                                    <span>
+                                        {% if lang == 'en' %}
+                                            Code
+                                        {% else %}
+                                            Kod
+                                        {% endif %}
+                                    </span>
+                                </div>
 
-                            <div class="floating-card creativity" data-aos="fade-up" data-aos-delay="900">
-                                <i class="bi bi-lightbulb"></i>
-                                <span>
-                                    {% if lang == 'en' %}
-                                        Ideas
-                                    {% else %}
-                                        Fikirler
-                                    {% endif %}
-                                </span>
-                            </div>
+                                <div class="floating-card creativity" data-aos="fade-up" data-aos-delay="900">
+                                    <i class="bi bi-lightbulb"></i>
+                                    <span>
+                                        {% if lang == 'en' %}
+                                            Ideas
+                                        {% else %}
+                                            Fikirler
+                                        {% endif %}
+                                    </span>
+                                </div>
+                            {% endfor %}
 
                         </div>
 
