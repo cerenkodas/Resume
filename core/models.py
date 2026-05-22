@@ -85,6 +85,7 @@ class AboutInfo(models.Model):
     description_3_tr = models.TextField(blank=True)
     description_3_en = models.TextField(blank=True)
     profile_image = models.ImageField(upload_to="about/", blank=True, null=True)
+    cv_file = models.FileField(upload_to="cv/", blank=True, null=True)
     quote_tr = models.TextField(blank=True)
     quote_en = models.TextField(blank=True)
     is_active = models.BooleanField(default=True)
